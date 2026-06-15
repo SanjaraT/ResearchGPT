@@ -1,0 +1,1 @@
+Local RAG-based Research Assistant using LangChain, FAISS, and Ollama (Qwen3/Phi-3)
