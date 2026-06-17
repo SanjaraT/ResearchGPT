@@ -21,11 +21,3 @@ def load_all_pdfs(pdf_folder):
         all_docs.extend(docs)
 
     return all_docs
-
-
-
-
-# def load_pdf(pdf_path):
-#     loader = PyPDFLoader(pdf_path)
-#     docs = loader.load()
-#     return docs

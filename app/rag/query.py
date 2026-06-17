@@ -39,8 +39,8 @@ Answer:
     retriever = vectorstore.as_retriever(
         search_type="mmr",
         search_kwargs={
-            "k": 5,
-            "fetch_k": 20
+            "k": 8,
+            "fetch_k": 30
         }
     )
 
@@ -48,6 +48,7 @@ Answer:
         llm=llm,
         retriever=retriever,
         chain_type="stuff",
+        return_source_documents = True,
         chain_type_kwargs={
             "prompt": PROMPT
         }

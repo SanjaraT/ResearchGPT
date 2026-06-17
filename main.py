@@ -83,6 +83,33 @@ while True:
     if question.lower() == "exit":
         break
 
+
+    # -----------------------------
+    # Show Indexed Papers
+    # -----------------------------
+    if question.lower() == "papers":
+
+        all_sources = set()
+
+        docs = vectorstore.docstore._dict.values()
+
+        for doc in docs:
+
+            all_sources.add(
+                doc.metadata["source_file"]
+            )
+
+        print("\nIndexed Papers:\n")
+
+        for paper in sorted(all_sources):
+
+            print("-", paper)
+
+        continue
+
+    # -----------------------------
+    # Query
+    # -----------------------------
     response = qa_chain.invoke(
         {"query": question}
     )
@@ -90,3 +117,24 @@ while True:
     print("\nAnswer:\n")
 
     print(response["result"])
+
+    print("\nSources:\n")
+
+    seen = set()
+
+    for doc in response["source_documents"]:
+        source = doc.metadata.get(
+            "source_file",
+            "Unknown"
+        )
+
+        page = doc.metadata.get(
+            "page",
+            "?"
+        )
+
+        citation = f"{source}(Page{page + 1})"
+
+        if citation not in seen:
+            print("-", citation)
+            seen.add(citation)
