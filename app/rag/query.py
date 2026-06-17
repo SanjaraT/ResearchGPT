@@ -1,6 +1,7 @@
 from langchain_ollama import ChatOllama
-from langchain.chains import RetrievalQA
+from langchain.chains import ConversationalRetrievalChain
 from langchain.prompts import PromptTemplate
+from langchain.memory.buffer import ConversationBufferMemory
 
 
 def build_qa_chain(vectorstore):
@@ -44,14 +45,21 @@ Answer:
         }
     )
 
-    qa_chain = RetrievalQA.from_chain_type(
-        llm=llm,
-        retriever=retriever,
-        chain_type="stuff",
+
+    memory =  ConversationBufferMemory(
+        memory_key = "chat_history",
+        return_messages = True,
+        output_key = "answer"
+    )
+
+    chain = ConversationalRetrievalChain.from_llm(
+        llm = llm,
+        retriever = retriever,
+        memory = memory,
         return_source_documents = True,
-        chain_type_kwargs={
+        combine_docs_chain_kwargs ={
             "prompt": PROMPT
         }
     )
 
-    return qa_chain
+    return chain

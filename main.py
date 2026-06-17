@@ -107,16 +107,63 @@ while True:
 
         continue
 
+     # -----------------------------
+    # Memory Command
+    # ----------------------------
+    if question.lower() == "history":
+        print("\nConversation History:\n")
+
+        for msg in qa_chain.memory.chat_memory.messages:
+            print(msg)
+
+        continue
+
+    if question.lower() == "clear":
+
+        qa_chain.memory.clear()
+
+        print("Memory Cleared.")
+
+        continue
+
+    
+    # -----------------------------
+    # Compare Mode
+    # -----------------------------
+    if question.startswith("compare"):
+        comparison_prompt = f"""
+Compare the papers regarding:
+
+{question}
+
+Provide:
+
+1. Objective
+2. Dataset
+3. Method
+4. Results
+5. Strengths
+6. Limitations
+"""
+        result = qa_chain.invoke(
+            {"question": comparison_prompt}
+        )
+
+        print("\nComparison:\n")
+        print(result["answer"])
+
+        continue
+
     # -----------------------------
     # Query
     # -----------------------------
     response = qa_chain.invoke(
-        {"query": question}
+        {"question": question}
     )
 
     print("\nAnswer:\n")
 
-    print(response["result"])
+    print(response["answer"])
 
     print("\nSources:\n")
 
