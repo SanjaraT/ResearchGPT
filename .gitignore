@@ -1,0 +1,22 @@
+# Environment Variables
+.env
+
+
+# Models
+models/
+*.gguf
+
+# Vector DB
+data/faiss_index/
+
+# PDFs
+data/pdfs/
+*.pdf
+
+# Virtual environments
+venv/
+venv_v4/
+
+# Python
+__pycache__/
+*.pyc
