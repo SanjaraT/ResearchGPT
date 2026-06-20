@@ -1,0 +1,206 @@
+[
+    {
+        "question": "What is the key idea behind the Transformer model in 'Attention Is All You Need'?",
+        "expected_answer": "The Transformer replaces recurrent networks with a self-attention mechanism that allows each token to attend to all other tokens in a sequence."
+    },
+    {
+        "question": "What improvement does RoBERTa introduce over BERT?",
+        "expected_answer": "RoBERTa improves BERT by training longer, using larger datasets and batches, and removing the next sentence prediction objective."
+    },
+    {
+        "question": "What does XLNet combine from different modeling approaches?",
+        "expected_answer": "XLNet combines the strengths of autoregressive and autoencoding language models through permutation-based training."
+    },
+    {
+        "question": "What is the main idea of T5 model?",
+        "expected_answer": "T5 converts all natural language processing tasks into a unified text-to-text framework."
+    },
+    {
+        "question": "What is RAG used for in NLP tasks?",
+        "expected_answer": "RAG combines document retrieval with text generation to improve knowledge-intensive NLP tasks."
+    },
+    {
+        "question": "What is the purpose of LLaMA models?",
+        "expected_answer": "LLaMA aims to provide efficient and high-performing large language models using fewer computational resources."
+    },
+    {
+        "question": "What is LoRA mainly used for?",
+        "expected_answer": "LoRA enables parameter-efficient fine-tuning by updating a small number of low-rank matrices instead of all model parameters."
+    },
+    {
+        "question": "What mechanism replaced recurrence in the Transformer model?",
+        "expected_answer": "The Transformer replaces recurrent layers with self-attention mechanisms for sequence modeling."
+    },
+    {
+        "question": "What is the key innovation of BERT pretraining?",
+        "expected_answer": "BERT introduces masked language modeling, allowing the model to learn bidirectional contextual representations."
+    },
+    {
+        "question": "What is the main benefit of T5 framework?",
+        "expected_answer": "The T5 framework provides a unified approach where diverse NLP tasks are solved using the same text-to-text format."
+    },
+    {
+        "question": "What is the core idea of RAG systems?",
+        "expected_answer": "RAG systems retrieve relevant external documents and use them to generate more accurate and grounded responses."
+    },
+    {
+        "question": "Summarize the main contribution of the Transformer model introduced in Attention Is All You Need.",
+        "expected_answer": "The Transformer introduced a novel architecture based entirely on self-attention mechanisms, eliminating recurrent and convolutional layers while achieving superior performance in sequence modeling tasks."
+    },
+    {
+        "question": "Summarize the key idea behind BERT.",
+        "expected_answer": "BERT introduced bidirectional pretraining using masked language modeling, enabling the model to learn deep contextual representations from both directions of a text sequence."
+    },
+    {
+        "question": "Summarize the improvements introduced by RoBERTa.",
+        "expected_answer": "RoBERTa improved BERT by optimizing the training process through larger datasets, bigger batch sizes, longer training, and removal of the next sentence prediction objective."
+    },
+    {
+        "question": "Summarize the T5 framework.",
+        "expected_answer": "T5 unified a wide range of NLP tasks under a text-to-text paradigm, enabling the same model architecture to perform translation, classification, question answering, and other tasks."
+    },
+    {
+        "question": "Summarize Retrieval-Augmented Generation (RAG).",
+        "expected_answer": "RAG combines neural retrieval and sequence generation, allowing language models to access external knowledge sources during response generation."
+    },
+    {
+        "question": "Summarize the purpose of LLaMA.",
+        "expected_answer": "LLaMA focused on building efficient large language models that achieve strong performance while requiring significantly fewer computational resources."
+    },
+    {
+        "question": "Summarize the main idea of LoRA.",
+        "expected_answer": "LoRA introduced a parameter-efficient fine-tuning method that adapts large language models by training low-rank matrices instead of updating all parameters."
+    },
+    {
+        "question": "Compare BERT and GPT in terms of pretraining objectives.",
+        "expected_answer": "BERT uses masked language modeling to learn bidirectional representations, while GPT uses autoregressive next-token prediction for unidirectional language modeling."
+    },
+    {
+        "question": "Compare RoBERTa and BERT.",
+        "expected_answer": "RoBERTa retains the BERT architecture but improves training through larger datasets, dynamic masking, longer training, and removal of next sentence prediction."
+    },
+    {
+        "question": "Compare XLNet and BERT.",
+        "expected_answer": "XLNet addresses limitations of BERT's masked language modeling by introducing permutation-based autoregressive training while preserving bidirectional context."
+    },
+    {
+        "question": "Compare GPT and T5.",
+        "expected_answer": "GPT focuses on autoregressive text generation, whereas T5 converts all NLP tasks into a unified text-to-text framework."
+    },
+    {
+        "question": "Compare Transformer and recurrent neural networks.",
+        "expected_answer": "Transformers rely on self-attention for parallel processing and long-range dependency modeling, whereas recurrent neural networks process sequences sequentially."
+    },
+    {
+        "question": "Compare RAG and standard language models.",
+        "expected_answer": "RAG augments generation with retrieved external knowledge, while standard language models rely solely on information stored in model parameters."
+    },
+    {
+        "question": "Compare LLaMA and GPT-style models.",
+        "expected_answer": "LLaMA emphasizes computational efficiency and smaller model sizes while maintaining competitive performance compared to larger GPT-style models."
+    },
+    {
+        "question": "Compare LoRA and full fine-tuning.",
+        "expected_answer": "LoRA updates only a small set of trainable low-rank parameters, whereas full fine-tuning modifies all model parameters."
+    },
+    {
+        "question": "How did the Transformer architecture influence the development of BERT and GPT?",
+        "expected_answer": "Both BERT and GPT are built upon the Transformer architecture, leveraging self-attention mechanisms to learn powerful contextual language representations."
+    },
+    {
+        "question": "What problem was the Transformer architecture designed to address compared to recurrent networks?",
+        "expected_answer": "The Transformer was designed to eliminate recurrence and enable more efficient parallel processing of sequences using self-attention mechanisms."
+    },
+    {
+        "question": "What are the two main pretraining tasks used in BERT?",
+        "expected_answer": "BERT is pretrained using Masked Language Modeling and Next Sentence Prediction."
+    },
+    {
+        "question": "What is the purpose of Masked Language Modeling in BERT?",
+        "expected_answer": "Masked Language Modeling trains the model to predict masked tokens using both left and right context."
+    },
+    {
+        "question": "Why was RoBERTa able to outperform the original BERT model?",
+        "expected_answer": "RoBERTa improved performance through longer training, larger batches, more training data, dynamic masking, and removal of the next sentence prediction objective."
+    },
+    {
+        "question": "What language modeling objective is introduced in XLNet?",
+        "expected_answer": "XLNet introduces a permutation-based autoregressive language modeling objective."
+    },
+    {
+        "question": "What is the primary goal of the T5 framework?",
+        "expected_answer": "T5 aims to unify all NLP tasks into a text-to-text framework using a single model architecture."
+    },
+    {
+        "question": "How does RAG incorporate external knowledge into generation?",
+        "expected_answer": "RAG retrieves relevant documents from an external knowledge source and conditions generation on the retrieved information."
+    },
+    {
+        "question": "What type of memory does RAG introduce in addition to parametric memory?",
+        "expected_answer": "RAG introduces non-parametric memory through an external document retrieval system."
+    },
+    {
+        "question": "What is one of the main contributions of the LLaMA paper?",
+        "expected_answer": "LLaMA demonstrates that smaller language models trained on large amounts of data can achieve strong performance efficiently."
+    },
+    {
+        "question": "What does LoRA freeze during fine-tuning?",
+        "expected_answer": "LoRA freezes the original pretrained model weights and trains only low-rank adaptation matrices."
+    },
+    {
+        "question": "How does LoRA reduce computational costs during adaptation?",
+        "expected_answer": "LoRA reduces computational costs by updating only a small number of trainable parameters instead of the entire model."
+    },
+    {
+        "question": "What mechanism allows the Transformer to model relationships between distant tokens?",
+        "expected_answer": "Self-attention allows the Transformer to model long-range dependencies between tokens."
+    },
+    {
+        "question": "What type of architecture is used by BERT?",
+        "expected_answer": "BERT uses a multi-layer bidirectional Transformer encoder architecture."
+    },
+    {
+        "question": "What major component of BERT training was removed in RoBERTa?",
+        "expected_answer": "RoBERTa removes the Next Sentence Prediction objective used in BERT."
+    },
+    {
+        "question": "What advantage does permutation language modeling provide in XLNet?",
+        "expected_answer": "Permutation language modeling enables XLNet to capture bidirectional context while maintaining an autoregressive training objective."
+    },
+    {
+        "question": "What limitation of full fine-tuning does LoRA address?",
+        "expected_answer": "LoRA addresses the high memory and computational requirements associated with full model fine-tuning."
+    },
+    {
+        "question": "Summarize the main contribution of the Attention Is All You Need paper.",
+        "expected_answer": "The paper introduces the Transformer architecture, which relies entirely on self-attention mechanisms instead of recurrence and achieves strong performance on sequence modeling tasks."
+    },
+    {
+        "question": "Summarize the BERT paper.",
+        "expected_answer": "The BERT paper introduces bidirectional Transformer pretraining using Masked Language Modeling and Next Sentence Prediction, achieving state-of-the-art results on multiple NLP benchmarks."
+    },
+    {
+        "question": "Summarize the GPT paper on generative pretraining.",
+        "expected_answer": "The GPT paper demonstrates that language models pretrained on large unlabeled corpora can be effectively adapted to downstream NLP tasks through fine-tuning."
+    },
+    {
+        "question": "Summarize the key findings of the RoBERTa paper.",
+        "expected_answer": "RoBERTa shows that BERT's performance can be significantly improved through optimized training procedures, larger datasets, and removal of the Next Sentence Prediction objective."
+    },
+    {
+        "question": "Summarize the XLNet paper.",
+        "expected_answer": "XLNet introduces permutation-based autoregressive pretraining, combining the strengths of autoregressive and autoencoding approaches while outperforming BERT on several benchmarks."
+    },
+    {
+        "question": "Summarize the T5 framework.",
+        "expected_answer": "T5 unifies diverse NLP tasks into a text-to-text format and demonstrates that scaling both models and datasets leads to strong transfer learning performance."
+    },
+    {
+        "question": "Summarize the Retrieval-Augmented Generation paper.",
+        "expected_answer": "The RAG paper combines neural retrieval with sequence generation, allowing language models to access external knowledge and improve performance on knowledge-intensive tasks."
+    },
+    {
+        "question": "Provide a summary of the evolution from Transformer-based models to Retrieval-Augmented Generation systems.",
+        "expected_answer": "The evolution progressed from self-attention-based Transformer architectures to pretrained language models and eventually to retrieval-augmented systems that combine generation with external knowledge sources."
+    }
+]

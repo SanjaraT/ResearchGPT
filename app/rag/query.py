@@ -10,6 +10,7 @@ from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables.history import RunnableWithMessageHistory
+from langchain_core.runnables import RunnableLambda
 
 
 from langchain_community.chat_message_histories import ChatMessageHistory
@@ -19,6 +20,7 @@ from app.rag.config import (
     OLLAMA_MODEL,
     GROQ_MODEL
 )
+from app.rag.reranker import rerank_documents
 
 load_dotenv()
 
@@ -85,26 +87,34 @@ def build_qa_chain(vectorstore):
     # ---------------------------------------
 
     prompt = ChatPromptTemplate.from_messages(
-        [
-            (
-                "system",
-                """
+    [
+        (
+            "system",
+            """
 You are an expert research assistant.
 
-Use ONLY the provided context.
+Use ONLY the provided context from the retrieved research papers.
 
 Rules:
-1. Be factual.
-2. Be concise.
-3. Do not hallucinate.
-4. If the answer is not found, say:
+
+1. Answer strictly from the provided context.
+2. Do not use outside knowledge.
+3. Be factual and accurate.
+4. Do not hallucinate or invent information.
+5. If the answer is not found in the context, reply exactly:
 
 "I could not find the answer in the provided papers."
+
+6. Provide complete research-style answers instead of short keywords.
+7. Explain the answer in 2-5 sentences when sufficient information is available.
+8. Preserve important technical terms, model names, datasets, objectives, and findings from the papers.
+9. When comparing concepts, clearly mention the differences and improvements.
+10. Avoid unnecessary repetition and overly verbose explanations.
 
 Context:
 {context}
 """
-            ),
+        ),
 
             MessagesPlaceholder(
                 variable_name="history"
@@ -132,19 +142,31 @@ Context:
     # Core RAG Chain
     # ---------------------------------------
 
+    def retrieve_and_rerank(question):
+
+        docs = retriever.invoke(question)
+
+        docs = rerank_documents(
+            question,
+            docs,
+            top_k=5
+        )
+
+        return format_docs(docs)
+
     rag_chain = (
 
         {
             "context":
                 itemgetter("question")
-                | retriever
-                | format_docs,
+                | RunnableLambda(retrieve_and_rerank),
 
             "question":
                 itemgetter("question"),
-
+            
             "history":
-                itemgetter("history")
+                RunnableLambda(lambda x: [])
+               
         }
 
         | prompt

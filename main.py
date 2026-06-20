@@ -1,37 +1,6 @@
-from app.rag.loader import load_all_pdfs
-from app.rag.splitter import split_documents
 from app.rag.embeddings import get_embedding_model
-from app.rag.vectorstore import (
-    create_vector_store,
-    save_vector_store
-)
+from app.rag.vectorstore import load_vector_store
 from app.rag.query import build_qa_chain
-
-
-PDF_FOLDER = r"D:\A\DL\ResearchGPT\data\pdfs"
-
-
-# --------------------------------------------------
-# Load PDFs
-# --------------------------------------------------
-
-print("\nLoading PDFs...")
-
-docs = load_all_pdfs(PDF_FOLDER)
-
-print(f"Loaded Pages: {len(docs)}")
-
-
-# --------------------------------------------------
-# Chunking
-# --------------------------------------------------
-
-print("\nSplitting Documents...")
-
-chunks = split_documents(docs)
-
-print(f"Total Chunks: {len(chunks)}")
-
 
 # --------------------------------------------------
 # Embeddings
@@ -41,19 +10,15 @@ print("\nLoading Embedding Model...")
 
 embeddings = get_embedding_model()
 
-
 # --------------------------------------------------
-# Vector Store
+# Load Existing FAISS Index
 # --------------------------------------------------
 
-print("\nCreating FAISS Vector Store...")
+print("\nLoading FAISS Vector Store...")
 
-vectorstore = create_vector_store(
-    chunks,
+vectorstore = load_vector_store(
     embeddings
 )
-
-save_vector_store(vectorstore)
 
 
 # --------------------------------------------------
@@ -195,11 +160,11 @@ while True:
     if question.lower().startswith("compare"):
 
         comparison_prompt = f"""
-Compare the papers regarding:
+Compare the papers overall regarding:
 
 {question}
 
-Provide:
+You might provide:
 
 1. Objective
 2. Dataset
