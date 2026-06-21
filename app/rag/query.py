@@ -2,8 +2,6 @@ from operator import itemgetter
 import os
 
 from dotenv import load_dotenv
-
-from langchain_ollama import ChatOllama
 from langchain_groq import ChatGroq
 
 from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
@@ -17,7 +15,6 @@ from langchain_community.chat_message_histories import ChatMessageHistory
 
 from app.rag.config import (
     LLM_PROVIDER,
-    OLLAMA_MODEL,
     GROQ_MODEL
 )
 from app.rag.reranker import rerank_documents
@@ -42,33 +39,17 @@ def get_session_history(session_id: str):
 # --------------------------------------------------
 # Build QA Chain
 # --------------------------------------------------
-
 def build_qa_chain(vectorstore):
 
     # ---------------------------------------
-    # LLM Selection
+    # Groq LLM
     # ---------------------------------------
 
-    if LLM_PROVIDER == "ollama":
-
-        llm = ChatOllama(
-            model=OLLAMA_MODEL,
-            temperature=0
-        )
-
-    elif LLM_PROVIDER == "groq":
-
-        llm = ChatGroq(
-            model=GROQ_MODEL,
-            api_key=os.getenv("GROQ_API_KEY"),
-            temperature=0
-        )
-
-    else:
-
-        raise ValueError(
-            f"Unsupported provider: {LLM_PROVIDER}"
-        )
+    llm = ChatGroq(
+        model=GROQ_MODEL,
+        api_key=os.getenv("GROQ_API_KEY"),
+        temperature=0
+    )
 
     # ---------------------------------------
     # Retriever

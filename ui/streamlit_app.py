@@ -16,7 +16,7 @@ st.set_page_config(
 
 st.title("📚 ResearchGPT")
 st.caption(
-    "Multi-Paper Research Assistant powered by RAG + Groq"
+    "Research Assistant powered by RAG + Groq"
 )
 
 # ----------------------------------
