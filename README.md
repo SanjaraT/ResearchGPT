@@ -91,8 +91,8 @@ ResearchGPT/
 │
 ├── evaluation/
 ├── screenshots/
-├── scripts/
-├── ui/
+├── streamlit_app.py
+├── create_index.py
 ├── main.py
 ├── README.md
 └── requirements.txt
@@ -119,7 +119,7 @@ python scripts/create_index.py
 Launch the application:
 
 ```bash
-streamlit run ui/streamlit_app.py
+streamlit run streamlit_app.py
 ```
 
 ---
@@ -127,15 +127,10 @@ streamlit run ui/streamlit_app.py
 ## Example Questions
 
 ```text
-What is the main contribution of the Transformer paper?
-
-Which paper introduced masked language modeling?
-
-Compare BERT and RoBERTa.
-
-What BLEU score did the authors achieve?
-
-What optimizer settings were used?
+What is the key idea behind the Transformer model in 'Attention Is All You Need'?
+What improvement does RoBERTa introduce over BERT?
+What is LoRA mainly used for?
+What is the key innovation of BERT pretraining?
 ```
 
 ---
@@ -148,7 +143,7 @@ What optimizer settings were used?
 
 ### Question Answering
 
-![Question Answering](screenshots/Question_Answering_1.PNG)
+![Question Answering](screenshots/Question_Answering_3.PNG)
 ![Question Answering](screenshots/Question_Answering_2.PNG)
 
 ---
