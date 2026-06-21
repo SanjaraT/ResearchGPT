@@ -144,13 +144,12 @@ What optimizer settings were used?
 
 ### Main Interface
 
-![Main Interface](screenshots\Main_Interface.PNG)
+![Main Interface](screenshots/Main_Interface.PNG)
 
 ### Question Answering
 
-![Question Answering](screenshots/Question_Answering_1.png)
-![Question Answering](screenshots/Question_Answering_2.png)
-
+![Question Answering](screenshots/Question_Answering_1.PNG)
+![Question Answering](screenshots/Question_Answering_2.PNG)
 
 ---
 
