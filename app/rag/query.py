@@ -58,8 +58,8 @@ def build_qa_chain(vectorstore):
     retriever = vectorstore.as_retriever(
         search_type="mmr",
         search_kwargs={
-            "k": 8,
-            "fetch_k": 30
+            "k": 12,
+            "fetch_k": 40
         }
     )
 
@@ -82,15 +82,15 @@ Rules:
 2. Do not use outside knowledge.
 3. Be factual and accurate.
 4. Do not hallucinate or invent information.
-5. If the answer is not found in the context, reply exactly:
+5. If the answer is not found in the paper, reply exactly:
 
-"I could not find the answer in the provided papers."
-
-6. Provide complete research-style answers instead of short keywords.
-7. Explain the answer in 2-5 sentences when sufficient information is available.
-8. Preserve important technical terms, model names, datasets, objectives, and findings from the papers.
-9. When comparing concepts, clearly mention the differences and improvements.
-10. Avoid unnecessary repetition and overly verbose explanations.
+"I could not find the answer in the provided paper."
+6. Explain the answer in 2-5 sentences when sufficient information is available.
+7. Preserve important technical terms, model names, datasets, objectives, and findings from the papers.
+8. When comparing concepts, clearly mention the differences and improvements.
+9. Use conversation history when the user asks follow-up questions.
+10. Resolve references such as "it", "they", "that paper", "the model", "those results" using conversation history.
+11. If a follow-up question refers to a previous paper or concept, continue the discussion naturally.
 
 Context:
 {context}
@@ -123,9 +123,31 @@ Context:
     # Core RAG Chain
     # ---------------------------------------
 
-    def retrieve_and_rerank(question):
+    def retrieve_and_rerank(inputs):
+        question = inputs["question"]
 
-        docs = retriever.invoke(question)
+        history = inputs.get(
+            "history",
+            []
+        )
+
+        history_text = "\n".join(
+            [
+                msg.content
+                for msg in history[-4:]
+            ]
+        )
+
+        search_query = f"""
+    Conversation:
+    {history_text}
+
+    Current Question:
+    {question}
+    """
+        docs = retriever.invoke(
+            search_query
+        )
 
         docs = rerank_documents(
             question,
@@ -139,14 +161,15 @@ Context:
 
         {
             "context":
-                itemgetter("question")
-                | RunnableLambda(retrieve_and_rerank),
+                RunnableLambda(
+                    retrieve_and_rerank
+                ),
 
             "question":
                 itemgetter("question"),
             
             "history":
-                RunnableLambda(lambda x: [])
+                itemgetter("history")
                
         }
 

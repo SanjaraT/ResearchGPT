@@ -1,8 +1,9 @@
 import streamlit as st
-
 from app.rag.embeddings import get_embedding_model
 from app.rag.vectorstore import load_vector_store
-from app.rag.query import build_qa_chain
+from app.rag.query import build_qa_chain, get_session_history_public
+import uuid
+
 
 # ----------------------------------
 # Page
@@ -49,9 +50,12 @@ st.sidebar.title("ResearchGPT")
 
 if st.sidebar.button("Clear Memory"):
 
-    qa_chain.get_session_history(
-        "streamlit_user"
+
+    get_session_history_public(
+        st.session_state.session_id
     ).clear()
+
+    st.session_state.messages = []
 
     st.sidebar.success(
         "Memory Cleared"
@@ -87,6 +91,12 @@ for paper in sorted(all_sources):
 if "messages" not in st.session_state:
 
     st.session_state.messages = []
+
+if "session_id" not in st.session_state:
+
+    st.session_state.session_id = str(
+        uuid.uuid4()
+    )
 
 for msg in st.session_state.messages:
 
@@ -133,7 +143,7 @@ if question:
             config={
                 "configurable": {
                     "session_id":
-                    "streamlit_user"
+                    st.session_state.session_id
                 }
             }
         )

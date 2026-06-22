@@ -1,6 +1,6 @@
 from app.rag.embeddings import get_embedding_model
 from app.rag.vectorstore import load_vector_store
-from app.rag.query import build_qa_chain
+from app.rag.query import build_qa_chain, get_session_history_public
 
 # --------------------------------------------------
 # Embeddings
@@ -95,7 +95,7 @@ while True:
 
     if question.lower() == "history":
 
-        history = qa_chain.get_session_history(
+        history = get_session_history_public(
             SESSION_ID
         )
 
@@ -112,13 +112,13 @@ while True:
 
         continue
 
-    # --------------------------------------------------
+    # -------------------------------------------------
     # Clear Memory
     # --------------------------------------------------
 
     if question.lower() == "clear":
 
-        qa_chain.get_session_history(
+        get_session_history_public(
             SESSION_ID
         ).clear()
 
