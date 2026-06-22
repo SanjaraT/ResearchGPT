@@ -143,8 +143,8 @@ What is the key innovation of BERT pretraining?
 
 ### Question Answering
 
-![Question Answering](screenshots/Question_Answering_3.PNG)
-![Question Answering](screenshots/Question_Answering_2.PNG)
+![Question Answering](screenshots/Qus_ans_3.PNG)
+![Question Answering](screenshots/Qus_ans_4.PNG)
 
 ---
 
