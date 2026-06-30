@@ -1,0 +1,29 @@
+# Virtual environments
+venv/
+venv_v4/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Git
+.git/
+.gitignore
+
+# Data
+data/pdfs/
+
+# Evaluation
+evaluation/
+results.csv
+
+# Local env
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.dbsS

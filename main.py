@@ -1,6 +1,7 @@
 from app.rag.embeddings import get_embedding_model
-from app.rag.vectorstore import load_vector_store
+from app.rag.vectorstore import load_vector_store, add_documents_to_vectorstore
 from app.rag.query import build_qa_chain, get_session_history_public
+from app.rag.upload import process_uploaded_files
 
 # --------------------------------------------------
 # Embeddings
@@ -32,13 +33,23 @@ qa_chain, retriever = build_qa_chain(
 )
 
 print("\nResearchGPT Ready!")
-# print("\nCommands:")
-# print("papers   -> list indexed papers")
-# print("history  -> show conversation memory")
-# print("clear    -> clear memory")
-# print("stats    -> show index statistics")
-# print("compare <topic>")
-print("Type exit to end the session!\n")
+print("\nAvailable Commands")
+
+print("------------------------------")
+
+print("papers   -> List indexed papers")
+
+print("stats    -> Show database statistics")
+
+print("history  -> Show conversation history")
+
+print("clear    -> Clear memory")
+
+print("compare  -> Compare research papers")
+
+print("upload   -> Add new PDFs")
+
+print("exit     -> Quit\n")
 
 
 # --------------------------------------------------
@@ -61,6 +72,38 @@ while True:
 
     if question.lower() == "exit":
         break
+
+# --------------------------------------------------
+# Upload PDFs
+# --------------------------------------------------
+
+if question.lower() == "upload":
+
+    folder = input(
+        "\nEnter PDF folder path: "
+    ).strip()
+
+    try:
+
+        chunks = process_uploaded_files(folder)
+
+        vectorstore = add_documents_to_vectorstore(
+            vectorstore,
+            chunks
+        )
+
+        qa_chain, retriever = build_qa_chain(
+            vectorstore
+        )
+
+        print("\nKnowledge Base Updated Successfully!")
+
+    except Exception as e:
+
+        print(f"\nError: {e}")
+
+    continue
+
 
     # --------------------------------------------------
     # Papers Command

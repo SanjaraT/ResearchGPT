@@ -1,23 +1,42 @@
-from langchain_community.document_loaders import PyPDFLoader
 from pathlib import Path
+from langchain_community.document_loaders import PyPDFLoader
 
-def load_all_pdfs(pdf_folder):
 
-    all_docs = []
-    pdf_files = Path(pdf_folder).glob("*.pdf")
+def load_folder(folder):
 
-    for  pdf_file in pdf_files:
+    docs = []
+
+    pdf_files = Path(folder).glob("*.pdf")
+
+    for pdf_file in pdf_files:
+
         print(f"Loading: {pdf_file.name}")
 
         loader = PyPDFLoader(str(pdf_file))
 
-        docs = loader.load()
+        pages = loader.load()
+
+        for page in pages:
+
+            page.metadata["source_file"] = pdf_file.name
+
+            page.metadata["folder"] = str(folder)
+
+        docs.extend(pages)
+
+    return docs
 
 
-        # source information
-        for doc in docs:
+def load_all_pdfs():
 
-            doc.metadata["source_file"] = pdf_file.name
-        all_docs.extend(docs)
+    all_docs = []
+
+    all_docs.extend(
+        load_folder("data/pdfs")
+    )
+
+    all_docs.extend(
+        load_folder("data/uploads")
+    )
 
     return all_docs
