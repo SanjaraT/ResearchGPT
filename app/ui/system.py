@@ -1,7 +1,7 @@
 import streamlit as st
 
 from app.rag.embeddings import get_embedding_model
-from app.rag.vectorstore import load_vector_store
+from app.rag.vectorstore import load_vector_store, INDEX_PATH
 from app.rag.query import build_qa_chain
 
 
@@ -29,6 +29,13 @@ def initialize_system():
 
     if "vectorstore" in st.session_state:
         return
+
+    if not (INDEX_PATH / "index.faiss").exists():
+        st.error(
+            "No knowledge base found. Put PDFs in data/pdfs, "
+            "run `python create_index.py`, then restart the app."
+        )
+    st.stop()
 
     embeddings = load_embedding_model()
 
