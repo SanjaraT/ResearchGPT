@@ -3,13 +3,14 @@ from app.rag.splitter import split_documents
 from app.rag.embeddings import get_embedding_model
 from app.rag.vectorstore import (
     create_vector_store,
-    save_vector_store
+    save_vector_store,
+    get_vectorstore_statistics
 )
 
-PDF_PATH = "data/pdfs"
+# PDF_PATH = "data/pdfs"
 
 print("Loading PDFs...")
-docs = load_all_pdfs(PDF_PATH)
+docs = load_all_pdfs()
 
 print("Splitting...")
 chunks = split_documents(docs)
@@ -25,4 +26,5 @@ vectorstore = create_vector_store(
 
 save_vector_store(vectorstore)
 
-print("Vectorstore saved!")
+# print("Vectorstore saved!")
+print("Vectorstore saved!", get_vectorstore_statistics(vectorstore))
