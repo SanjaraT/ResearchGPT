@@ -1,0 +1,1041 @@
+[
+  {
+    "id": 1,
+    "category": "direct",
+    "question": "In Attention Is All You Need, why are the dot products in scaled dot-product attention divided by the square root of d_k?",
+    "expected_answer": "For large values of d_k the dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients; scaling counteracts this.",
+    "source_files": [
+      "Attention_is_all_you_need.pdf"
+    ]
+  },
+  {
+    "id": 2,
+    "category": "direct",
+    "question": "Which framework does Dense Passage Retrieval use to learn dense representations of questions and passages?",
+    "expected_answer": "A simple dual-encoder framework, with embeddings learned from a small number of questions and passages.",
+    "source_files": [
+      "DPR.pdf"
+    ]
+  },
+  {
+    "id": 3,
+    "category": "direct",
+    "question": "Which two tasks does Lost in the Middle use to analyze how language models use long input contexts?",
+    "expected_answer": "Multi-document question answering and key-value retrieval.",
+    "source_files": [
+      "Lost_in_the_Middle.pdf"
+    ]
+  },
+  {
+    "id": 4,
+    "category": "direct",
+    "question": "What GLUE score and SQuAD v1.1 Test F1 does BERT reach?",
+    "expected_answer": "BERT reaches a GLUE score of 80.5% and a SQuAD v1.1 Test F1 of 93.2.",
+    "source_files": [
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 5,
+    "category": "direct",
+    "question": "In BERT's masked language model (MLM), what happens to a token chosen for masking: how often is it replaced by [MASK], by a random token, or left unchanged?",
+    "expected_answer": "80% of the time it is replaced with the [MASK] token, 10% of the time with a random token, and 10% of the time it is left unchanged.",
+    "source_files": [
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 6,
+    "category": "direct",
+    "question": "How many parameters do BERT-BASE and BERT-LARGE have?",
+    "expected_answer": "BERT-BASE has 110M parameters and BERT-LARGE has 340M parameters.",
+    "source_files": [
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 7,
+    "category": "direct",
+    "question": "In how many of the 12 tasks studied does Improving Language Understanding by Generative Pre-Training improve the state of the art?",
+    "expected_answer": "It significantly improves upon the state of the art in 9 out of the 12 tasks studied.",
+    "source_files": [
+      "GPT-1.pdf"
+    ]
+  },
+  {
+    "id": 8,
+    "category": "direct",
+    "question": "What absolute improvements does Improving Language Understanding by Generative Pre-Training report on commonsense reasoning (Stories Cloze Test), question answering (RACE) and textual entailment (MultiNLI)?",
+    "expected_answer": "Absolute improvements of 8.9% on commonsense reasoning, 5.7% on question answering and 1.5% on textual entailment.",
+    "source_files": [
+      "GPT-1.pdf"
+    ]
+  },
+  {
+    "id": 9,
+    "category": "direct",
+    "question": "On how many of the 8 tested language modeling datasets does the largest model in Language Models are Unsupervised Multitask Learners reach state of the art results in a zero-shot setting?",
+    "expected_answer": "It achieves state of the art results on 7 out of 8 tested language modeling datasets in a zero-shot setting.",
+    "source_files": [
+      "Language_model.pdf"
+    ]
+  },
+  {
+    "id": 10,
+    "category": "direct",
+    "question": "What F1 does the model in Language Models are Unsupervised Multitask Learners reach on the CoQA dataset, and how many training examples does it use?",
+    "expected_answer": "It reaches 55 F1 on CoQA, matching or exceeding 3 out of 4 baseline systems without using the 127,000+ training examples.",
+    "source_files": [
+      "Language_model.pdf"
+    ]
+  },
+  {
+    "id": 11,
+    "category": "direct",
+    "question": "How many parameters does the autoregressive language model in Language Models are Few-Shot Learners have, compared with previous non-sparse language models?",
+    "expected_answer": "It has 175 billion parameters, 10x more than any previous non-sparse language model.",
+    "source_files": [
+      "Few_Shot.pdf"
+    ]
+  },
+  {
+    "id": 12,
+    "category": "direct",
+    "question": "How many model sizes are trained in Language Models are Few-Shot Learners, and what is their range in parameters?",
+    "expected_answer": "Eight different sizes, ranging from 125 million parameters to 175 billion parameters.",
+    "source_files": [
+      "Few_Shot.pdf"
+    ]
+  },
+  {
+    "id": 13,
+    "category": "direct",
+    "question": "What range of parameter sizes do the LLaMA foundation language models span, and what kind of data are they trained on?",
+    "expected_answer": "They range from 7B to 65B parameters and are trained exclusively on publicly available datasets.",
+    "source_files": [
+      "LLama.pdf"
+    ]
+  },
+  {
+    "id": 14,
+    "category": "direct",
+    "question": "What does LoRA (Low-Rank Adaptation) freeze, and what does it inject into each layer of the Transformer architecture?",
+    "expected_answer": "LoRA freezes the pre-trained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture.",
+    "source_files": [
+      "LoRA.pdf"
+    ]
+  },
+  {
+    "id": 15,
+    "category": "direct",
+    "question": "By how much can LoRA reduce the number of trainable parameters and the GPU memory requirement compared with fine-tuning the 175B-parameter model from Language Models are Few-Shot Learners with Adam?",
+    "expected_answer": "LoRA can reduce the number of trainable parameters by 10,000 times and the GPU memory requirement by 3 times.",
+    "source_files": [
+      "LoRA.pdf"
+    ]
+  },
+  {
+    "id": 16,
+    "category": "direct",
+    "question": "What are the parametric and non-parametric memory in retrieval-augmented generation (RAG)?",
+    "expected_answer": "The parametric memory is a pre-trained seq2seq model; the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever.",
+    "source_files": [
+      "RAG.pdf"
+    ]
+  },
+  {
+    "id": 17,
+    "category": "direct",
+    "question": "What is the difference between RAG-Sequence and RAG-Token?",
+    "expected_answer": "RAG-Sequence conditions on the same retrieved passage across the whole generated sequence, while RAG-Token can use a different passage per token.",
+    "source_files": [
+      "RAG.pdf"
+    ]
+  },
+  {
+    "id": 18,
+    "category": "direct",
+    "question": "Which objective does RoBERTa remove from BERT's pre-training, and how does it change the masking?",
+    "expected_answer": "RoBERTa removes the next sentence prediction (NSP) objective and replaces static masking with dynamic masking, generating a new masking pattern every time a sequence is fed to the model.",
+    "source_files": [
+      "RoBERTa.pdf"
+    ]
+  },
+  {
+    "id": 19,
+    "category": "direct",
+    "question": "What is the Colossal Clean Crawled Corpus (C4) introduced in the T5 paper?",
+    "expected_answer": "C4 is a data set of hundreds of gigabytes of clean English text scraped from the web (derived from Common Crawl), introduced for pre-training in the T5 paper.",
+    "source_files": [
+      "Transfer_Learning.pdf"
+    ]
+  },
+  {
+    "id": 20,
+    "category": "direct",
+    "question": "How many parameters does the largest T5 model have?",
+    "expected_answer": "The largest T5 model has 11 billion parameters.",
+    "source_files": [
+      "Transfer_Learning.pdf"
+    ]
+  },
+  {
+    "id": 21,
+    "category": "direct",
+    "question": "On how many tasks does XLNet outperform BERT, and on how many does it reach state-of-the-art results?",
+    "expected_answer": "XLNet outperforms BERT on 20 tasks, often by a large margin, and achieves state-of-the-art results on 18 tasks.",
+    "source_files": [
+      "XLNet.pdf"
+    ]
+  },
+  {
+    "id": 22,
+    "category": "direct",
+    "question": "In Generative Adversarial Nets, what is the unique solution in the space of arbitrary functions G and D?",
+    "expected_answer": "G recovers the training data distribution and D is equal to 1/2 everywhere.",
+    "source_files": [
+      "Generative_ai.pdf"
+    ]
+  },
+  {
+    "id": 23,
+    "category": "direct",
+    "question": "How many parameters and neurons does the network in ImageNet Classification with Deep Convolutional Neural Networks have?",
+    "expected_answer": "The neural network has 60 million parameters and 650,000 neurons.",
+    "source_files": [
+      "ImageNet.pdf"
+    ]
+  },
+  {
+    "id": 24,
+    "category": "direct",
+    "question": "What top-5 test error rate did the model in ImageNet Classification with Deep Convolutional Neural Networks achieve in ILSVRC-2012, and what did the second-best entry achieve?",
+    "expected_answer": "A variant of the model achieved a top-5 test error rate of 15.3%, compared to 26.2% achieved by the second-best entry.",
+    "source_files": [
+      "ImageNet.pdf"
+    ]
+  },
+  {
+    "id": 25,
+    "category": "direct",
+    "question": "How many convolutional layers and fully connected layers does the YOLO network have?",
+    "expected_answer": "The YOLO network has 24 convolutional layers followed by 2 fully connected layers.",
+    "source_files": [
+      "YOLO.pdf"
+    ]
+  },
+  {
+    "id": 26,
+    "category": "direct",
+    "question": "At how many frames per second do the base YOLO model and Fast YOLO process images?",
+    "expected_answer": "The base YOLO model processes images in real-time at 45 frames per second, and Fast YOLO processes 155 frames per second.",
+    "source_files": [
+      "YOLO.pdf"
+    ]
+  },
+  {
+    "id": 27,
+    "category": "direct",
+    "question": "Which two parameter-reduction techniques does ALBERT use to lower the memory consumption of BERT?",
+    "expected_answer": "Factorized embedding parameterization and cross-layer parameter sharing.",
+    "source_files": [
+      "ALBERT.pdf"
+    ]
+  },
+  {
+    "id": 28,
+    "category": "direct",
+    "question": "By how much does DistilBERT reduce the size of a BERT model, how much faster is it, and how much of BERT's language understanding does it retain?",
+    "expected_answer": "DistilBERT reduces the size of a BERT model by 40%, is 60% faster, and retains 97% of its language understanding capabilities.",
+    "source_files": [
+      "DistilBERT.pdf"
+    ]
+  },
+  {
+    "id": 29,
+    "category": "direct",
+    "question": "What pre-training task does ELECTRA propose, and what does its discriminative model predict?",
+    "expected_answer": "Replaced token detection: the discriminative model predicts whether each token in the corrupted input was replaced by a generator sample or not.",
+    "source_files": [
+      "ELECTRA.pdf"
+    ]
+  },
+  {
+    "id": 30,
+    "category": "direct",
+    "question": "Which noising approaches work best for pre-training BART?",
+    "expected_answer": "Randomly shuffling the order of the original sentences and using a novel in-filling scheme, where spans of text are replaced with a single mask token.",
+    "source_files": [
+      "BART.pdf"
+    ]
+  },
+  {
+    "id": 31,
+    "category": "direct",
+    "question": "By how much does Dense Passage Retrieval outperform the Lucene-BM25 system in top-20 passage retrieval accuracy?",
+    "expected_answer": "It outperforms a strong Lucene-BM25 system largely by 9%-19% absolute in top-20 passage retrieval accuracy.",
+    "source_files": [
+      "DPR.pdf"
+    ]
+  },
+  {
+    "id": 32,
+    "category": "direct",
+    "question": "How long does finding the most similar pair among 10,000 sentences take with BERT, and how long with Sentence-BERT?",
+    "expected_answer": "About 65 hours with BERT / RoBERTa, but only about 5 seconds with Sentence-BERT, while maintaining accuracy.",
+    "source_files": [
+      "Sentence_BERT.pdf"
+    ]
+  },
+  {
+    "id": 33,
+    "category": "direct",
+    "question": "How does the language modeling loss scale according to Scaling Laws for Neural Language Models, and over how many orders of magnitude?",
+    "expected_answer": "The loss scales as a power-law with model size, dataset size and the amount of compute used for training, with some trends spanning more than seven orders of magnitude.",
+    "source_files": [
+      "Scaling_Laws.pdf"
+    ]
+  },
+  {
+    "id": 34,
+    "category": "direct",
+    "question": "What does Training Compute-Optimal Large Language Models conclude about how model size and the number of training tokens should be scaled?",
+    "expected_answer": "They should be scaled equally: for every doubling of model size the number of training tokens should also be doubled.",
+    "source_files": [
+      "Chinchilla.pdf"
+    ]
+  },
+  {
+    "id": 35,
+    "category": "direct",
+    "question": "How do outputs from the 1.3B-parameter InstructGPT model compare with outputs from the 175B-parameter model?",
+    "expected_answer": "Outputs from the 1.3B-parameter InstructGPT model are preferred to outputs from the 175B model, despite having 100x fewer parameters.",
+    "source_files": [
+      "InstructGPT.pdf"
+    ]
+  },
+  {
+    "id": 36,
+    "category": "direct",
+    "question": "What result do chain-of-thought prompts give PaLM 540B on the GSM8K benchmark of math word problems?",
+    "expected_answer": "With just eight chain-of-thought exemplars, PaLM 540B achieves state-of-the-art accuracy on GSM8K, surpassing even finetuned GPT-3 with a verifier.",
+    "source_files": [
+      "Chain_of_Thought.pdf"
+    ]
+  },
+  {
+    "id": 37,
+    "category": "direct",
+    "question": "What range of parameter sizes does Llama 2 cover, and what is Llama 2-Chat optimized for?",
+    "expected_answer": "Llama 2 ranges from 7 billion to 70 billion parameters, and Llama 2-Chat is optimized for dialogue use cases.",
+    "source_files": [
+      "Llama2.pdf"
+    ]
+  },
+  {
+    "id": 38,
+    "category": "direct",
+    "question": "What does QLoRA make possible on a single 48GB GPU?",
+    "expected_answer": "It makes it possible to finetune a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning task performance.",
+    "source_files": [
+      "QLoRA.pdf"
+    ]
+  },
+  {
+    "id": 39,
+    "category": "direct",
+    "question": "What are reflection tokens in Self-RAG used for?",
+    "expected_answer": "They let a single language model retrieve passages on demand and generate and reflect on the retrieved passages and its own generations, which makes the model controllable at inference time.",
+    "source_files": [
+      "Self_RAG.pdf"
+    ]
+  },
+  {
+    "id": 40,
+    "category": "direct",
+    "question": "Where in the input context do language models perform best and worst according to Lost in the Middle?",
+    "expected_answer": "Performance is often highest when relevant information occurs at the beginning or end of the input context, and significantly degrades when it must be accessed in the middle of long contexts.",
+    "source_files": [
+      "Lost_in_the_Middle.pdf"
+    ]
+  },
+  {
+    "id": 41,
+    "category": "direct",
+    "question": "What is the maximum depth evaluated in Deep Residual Learning for Image Recognition, and what ImageNet test error does the ensemble achieve?",
+    "expected_answer": "Residual nets with a depth of up to 152 layers, 8x deeper than VGG nets; an ensemble achieves 3.57% error on the ImageNet test set, winning the ILSVRC 2015 classification task.",
+    "source_files": [
+      "ResNet.pdf"
+    ]
+  },
+  {
+    "id": 42,
+    "category": "direct",
+    "question": "What Inception score and FID does Denoising Diffusion Probabilistic Models achieve on unconditional CIFAR10?",
+    "expected_answer": "An Inception score of 9.46 and a state-of-the-art FID score of 3.17.",
+    "source_files": [
+      "DDPM.pdf"
+    ]
+  },
+  {
+    "id": 43,
+    "category": "summary",
+    "question": "Summarize Attention Is All You Need.",
+    "expected_answer": "The paper proposes the Transformer, a network architecture based solely on attention mechanisms that dispenses with recurrence and convolutions entirely. It is more parallelizable and faster to train, and achieves 28.4 BLEU on WMT 2014 English-to-German translation.",
+    "source_files": [
+      "Attention_is_all_you_need.pdf"
+    ]
+  },
+  {
+    "id": 44,
+    "category": "summary",
+    "question": "Summarize Improving Language Understanding by Generative Pre-Training.",
+    "expected_answer": "The paper shows that generative pre-training of a language model on a diverse unlabeled corpus, followed by discriminative fine-tuning on each task with task-aware input transformations, substantially improves language understanding and beats the state of the art in 9 of 12 tasks.",
+    "source_files": [
+      "GPT-1.pdf"
+    ]
+  },
+  {
+    "id": 45,
+    "category": "summary",
+    "question": "Summarize Language Models are Unsupervised Multitask Learners.",
+    "expected_answer": "The paper shows that language models begin to learn tasks such as question answering, machine translation, reading comprehension and summarization without explicit supervision when trained on WebText, a dataset of millions of webpages; its 1.5B parameter model reaches state of the art on 7 of 8 language modeling datasets zero-shot.",
+    "source_files": [
+      "Language_model.pdf"
+    ]
+  },
+  {
+    "id": 46,
+    "category": "summary",
+    "question": "Summarize Language Models are Few-Shot Learners.",
+    "expected_answer": "The paper trains an autoregressive language model with 175 billion parameters and tests it in the few-shot setting, with tasks and demonstrations specified purely through text and no gradient updates or fine-tuning, achieving strong performance on many NLP datasets.",
+    "source_files": [
+      "Few_Shot.pdf"
+    ]
+  },
+  {
+    "id": 47,
+    "category": "summary",
+    "question": "Summarize LLaMA: Open and Efficient Foundation Language Models.",
+    "expected_answer": "LLaMA is a collection of foundation language models from 7B to 65B parameters trained on trillions of tokens using exclusively publicly available datasets; LLaMA-13B outperforms GPT-3 (175B) on most benchmarks.",
+    "source_files": [
+      "LLama.pdf"
+    ]
+  },
+  {
+    "id": 48,
+    "category": "summary",
+    "question": "Summarize XLNet: Generalized Autoregressive Pretraining for Language Understanding.",
+    "expected_answer": "XLNet is a generalized autoregressive pretraining method that learns bidirectional contexts by maximizing the expected likelihood over all permutations of the factorization order, integrates Transformer-XL, overcomes limitations of BERT, and outperforms BERT on 20 tasks.",
+    "source_files": [
+      "XLNet.pdf"
+    ]
+  },
+  {
+    "id": 49,
+    "category": "summary",
+    "question": "Summarize You Only Look Once: Unified, Real-Time Object Detection.",
+    "expected_answer": "YOLO frames object detection as a single regression problem: one neural network predicts bounding boxes and class probabilities directly from full images in one evaluation, enabling real-time detection at 45 frames per second, while Fast YOLO reaches 155 frames per second.",
+    "source_files": [
+      "YOLO.pdf"
+    ]
+  },
+  {
+    "id": 50,
+    "category": "summary",
+    "question": "Summarize Deep Residual Learning for Image Recognition.",
+    "expected_answer": "The paper introduces a residual learning framework in which layers learn residual functions with reference to their inputs, making very deep networks easier to train; networks of up to 152 layers won the ILSVRC 2015 classification task with a 3.57% ensemble error.",
+    "source_files": [
+      "ResNet.pdf"
+    ]
+  },
+  {
+    "id": 51,
+    "category": "summary",
+    "question": "Summarize QLoRA: Efficient Finetuning of Quantized LLMs.",
+    "expected_answer": "QLoRA finetunes quantized language models by backpropagating gradients through a frozen 4-bit pretrained model into LoRA adapters, using NF4, double quantization and paged optimizers, which makes finetuning a 65B model on a single 48GB GPU possible while preserving 16-bit performance.",
+    "source_files": [
+      "QLoRA.pdf"
+    ]
+  },
+  {
+    "id": 52,
+    "category": "summary",
+    "question": "Summarize Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection.",
+    "expected_answer": "Self-RAG trains a single language model to retrieve passages on demand and to generate and critique both the retrieved passages and its own outputs using special reflection tokens, outperforming ChatGPT and retrieval-augmented Llama 2-chat on several tasks.",
+    "source_files": [
+      "Self_RAG.pdf"
+    ]
+  },
+  {
+    "id": 53,
+    "category": "summary",
+    "question": "Summarize Training language models to follow instructions with human feedback.",
+    "expected_answer": "The paper fine-tunes language models with human feedback, first with supervised learning on labeler demonstrations and then with reinforcement learning from human feedback; the resulting 1.3B-parameter InstructGPT model is preferred to the 175B model despite having 100x fewer parameters.",
+    "source_files": [
+      "InstructGPT.pdf"
+    ]
+  },
+  {
+    "id": 54,
+    "category": "summary",
+    "question": "Summarize Chain-of-Thought Prompting Elicits Reasoning in Large Language Models.",
+    "expected_answer": "The paper shows that prompting large language models with chain-of-thought exemplars, a series of intermediate reasoning steps, greatly improves performance on arithmetic, commonsense and symbolic reasoning; PaLM 540B with eight exemplars reaches state-of-the-art accuracy on GSM8K.",
+    "source_files": [
+      "Chain_of_Thought.pdf"
+    ]
+  },
+  {
+    "id": 55,
+    "category": "comparison",
+    "question": "Compare the pre-training objective of BERT with that of Improving Language Understanding by Generative Pre-Training.",
+    "expected_answer": "BERT's masked language model randomly masks tokens and predicts them from both left and right context, giving deep bidirectional pre-training, while the generative pre-training paper uses a standard left-to-right language modeling objective that predicts each token from the preceding tokens.",
+    "source_files": [
+      "BERT.pdf",
+      "GPT-1.pdf"
+    ]
+  },
+  {
+    "id": 56,
+    "category": "comparison",
+    "question": "Compare how Language Models are Unsupervised Multitask Learners and Language Models are Few-Shot Learners evaluate their models: zero-shot versus few-shot settings, and model size.",
+    "expected_answer": "The first evaluates a 1.5B parameter model in a zero-shot setting without any parameter or architecture modification; the second evaluates a 175 billion parameter model in zero-shot, one-shot and few-shot settings, without gradient updates or fine-tuning.",
+    "source_files": [
+      "Language_model.pdf",
+      "Few_Shot.pdf"
+    ]
+  },
+  {
+    "id": 57,
+    "category": "comparison",
+    "question": "Compare how Improving Language Understanding by Generative Pre-Training and Language Models are Unsupervised Multitask Learners adapt a pre-trained language model to downstream tasks.",
+    "expected_answer": "The first pre-trains generatively and then fine-tunes discriminatively on each task using task-aware input transformations; the second trains on WebText and performs tasks in a zero-shot setting without any parameter or architecture modification.",
+    "source_files": [
+      "GPT-1.pdf",
+      "Language_model.pdf"
+    ]
+  },
+  {
+    "id": 58,
+    "category": "comparison",
+    "question": "Compare Sentence-BERT with BERT for finding similar sentences.",
+    "expected_answer": "BERT must process both sentences together, so finding the most similar pair among 10,000 sentences takes about 65 hours, while Sentence-BERT uses siamese and triplet networks to derive sentence embeddings and needs about 5 seconds, while maintaining accuracy.",
+    "source_files": [
+      "Sentence_BERT.pdf",
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 59,
+    "category": "comparison",
+    "question": "Compare how RoBERTa and XLNet each improve on BERT's pretraining.",
+    "expected_answer": "RoBERTa keeps BERT's architecture but trains longer with bigger batches over more data, removes next sentence prediction, trains on longer sequences and uses dynamic masking. XLNet instead maximizes the expected likelihood over all permutations of the factorization order.",
+    "source_files": [
+      "RoBERTa.pdf",
+      "XLNet.pdf",
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 60,
+    "category": "comparison",
+    "question": "Compare the text-to-text format of T5 with fine-tuning BERT for different language tasks.",
+    "expected_answer": "T5 converts every language problem into a text-to-text format, using the same model, loss function and hyperparameters across tasks, whereas BERT is fine-tuned with just one additional output layer for each task.",
+    "source_files": [
+      "Transfer_Learning.pdf",
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 61,
+    "category": "comparison",
+    "question": "Compare LoRA and QLoRA.",
+    "expected_answer": "LoRA freezes the pre-trained weights and injects trainable rank decomposition matrices; QLoRA backpropagates gradients through a frozen 4-bit quantized pretrained model into LoRA adapters, which allows finetuning a 65B model on a single 48GB GPU.",
+    "source_files": [
+      "LoRA.pdf",
+      "QLoRA.pdf"
+    ]
+  },
+  {
+    "id": 62,
+    "category": "comparison",
+    "question": "Compare how ALBERT and DistilBERT make BERT smaller.",
+    "expected_answer": "ALBERT lowers parameters with factorized embedding parameterization and cross-layer parameter sharing, while DistilBERT applies knowledge distillation during pre-training to get a model 40% smaller and 60% faster that retains 97% of BERT's capabilities.",
+    "source_files": [
+      "ALBERT.pdf",
+      "DistilBERT.pdf"
+    ]
+  },
+  {
+    "id": 63,
+    "category": "comparison",
+    "question": "Compare ELECTRA's replaced token detection with BERT's masked language modeling.",
+    "expected_answer": "BERT masks tokens and predicts the original identities of the masked tokens; ELECTRA replaces tokens with plausible samples from a small generator and trains a discriminator to predict for every token whether it was replaced, which is more compute-efficient.",
+    "source_files": [
+      "ELECTRA.pdf",
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 64,
+    "category": "comparison",
+    "question": "Compare RAG with Self-RAG regarding when passages are retrieved.",
+    "expected_answer": "RAG retrieves a fixed number of passages for every input, whereas Self-RAG trains the language model to retrieve adaptively, only on demand, and to critique retrieved passages and its own generations with reflection tokens.",
+    "source_files": [
+      "RAG.pdf",
+      "Self_RAG.pdf"
+    ]
+  },
+  {
+    "id": 65,
+    "category": "comparison",
+    "question": "Compare the conclusions of Scaling Laws for Neural Language Models and Training Compute-Optimal Large Language Models on splitting a compute budget between model size and training data.",
+    "expected_answer": "Scaling Laws concludes that compute-efficient training uses very large models on a relatively modest amount of data, stopping well before convergence; the compute-optimal paper finds that model size and training tokens should be scaled equally, doubling tokens whenever model size doubles.",
+    "source_files": [
+      "Scaling_Laws.pdf",
+      "Chinchilla.pdf"
+    ]
+  },
+  {
+    "id": 66,
+    "category": "comparison",
+    "question": "Compare InstructGPT with the language model in Language Models are Few-Shot Learners.",
+    "expected_answer": "The model in Language Models are Few-Shot Learners has 175 billion parameters and is used with in-context examples without fine-tuning, while InstructGPT is fine-tuned with human feedback and its 1.3B parameter model is preferred to the 175B model despite 100x fewer parameters.",
+    "source_files": [
+      "InstructGPT.pdf",
+      "Few_Shot.pdf"
+    ]
+  },
+  {
+    "id": 67,
+    "category": "comparison",
+    "question": "Compare Llama 2 with LLaMA in model sizes.",
+    "expected_answer": "LLaMA ranges from 7B to 65B parameters; Llama 2 ranges from 7 billion to 70 billion parameters and adds Llama 2-Chat models optimized for dialogue.",
+    "source_files": [
+      "Llama2.pdf",
+      "LLama.pdf"
+    ]
+  },
+  {
+    "id": 68,
+    "category": "comparison",
+    "question": "Compare the network depth in Deep Residual Learning for Image Recognition with the network in ImageNet Classification with Deep Convolutional Neural Networks.",
+    "expected_answer": "The ImageNet Classification network has five convolutional layers and three fully-connected layers, while the residual networks are evaluated with a depth of up to 152 layers, 8x deeper than VGG nets, thanks to residual learning.",
+    "source_files": [
+      "ResNet.pdf",
+      "ImageNet.pdf"
+    ]
+  },
+  {
+    "id": 69,
+    "category": "comparison",
+    "question": "Compare how Generative Adversarial Nets and Denoising Diffusion Probabilistic Models generate samples.",
+    "expected_answer": "Generative adversarial nets train a generator against a discriminator in an adversarial minimax process; diffusion probabilistic models are latent variable models inspired by nonequilibrium thermodynamics, trained on a weighted variational bound connected to denoising score matching.",
+    "source_files": [
+      "Generative_ai.pdf",
+      "DDPM.pdf"
+    ]
+  },
+  {
+    "id": 70,
+    "category": "comparison",
+    "question": "Compare BART with BERT and with Improving Language Understanding by Generative Pre-Training.",
+    "expected_answer": "BART is a denoising autoencoder that combines a bidirectional encoder like BERT with a left-to-right decoder like the generative pre-training model, inside a standard Transformer sequence-to-sequence architecture, so it suits both understanding and generation tasks.",
+    "source_files": [
+      "BART.pdf",
+      "BERT.pdf",
+      "GPT-1.pdf"
+    ]
+  },
+  {
+    "id": 71,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What does LoRA freeze during adaptation?"
+      },
+      {
+        "role": "assistant",
+        "content": "LoRA freezes the pre-trained model weights."
+      }
+    ],
+    "question": "What does it inject into each layer instead?",
+    "expected_answer": "It injects trainable rank decomposition matrices into each layer of the Transformer architecture.",
+    "source_files": [
+      "LoRA.pdf"
+    ]
+  },
+  {
+    "id": 72,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What is the Colossal Clean Crawled Corpus (C4) in the T5 paper?"
+      },
+      {
+        "role": "assistant",
+        "content": "C4 is a data set of hundreds of gigabytes of clean English text scraped from the web, used to pre-train T5."
+      }
+    ],
+    "question": "How many parameters does the largest model trained on it have?",
+    "expected_answer": "The largest T5 model has 11 billion parameters.",
+    "source_files": [
+      "Transfer_Learning.pdf"
+    ]
+  },
+  {
+    "id": 73,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What is the masked language model (MLM) task in BERT?"
+      },
+      {
+        "role": "assistant",
+        "content": "BERT masks 15% of all WordPiece tokens at random and predicts the masked tokens."
+      }
+    ],
+    "question": "How does RoBERTa change the masking pattern?",
+    "expected_answer": "RoBERTa uses dynamic masking: it generates a new masking pattern every time a sequence is fed to the model instead of masking once during preprocessing.",
+    "source_files": [
+      "RoBERTa.pdf",
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 74,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "Which attention function does Attention Is All You Need use?"
+      },
+      {
+        "role": "assistant",
+        "content": "It uses scaled dot-product attention."
+      }
+    ],
+    "question": "Why are its dot products scaled?",
+    "expected_answer": "For large values of d_k the dot products grow large in magnitude, pushing the softmax function into regions with extremely small gradients, so they are divided by the square root of d_k.",
+    "source_files": [
+      "Attention_is_all_you_need.pdf"
+    ]
+  },
+  {
+    "id": 75,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "Which two model sizes does the BERT paper report?"
+      },
+      {
+        "role": "assistant",
+        "content": "The BERT paper reports BERT-BASE and BERT-LARGE."
+      }
+    ],
+    "question": "How many parameters does the larger one have?",
+    "expected_answer": "BERT-LARGE has 340M parameters.",
+    "source_files": [
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 76,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What is YOLO?"
+      },
+      {
+        "role": "assistant",
+        "content": "YOLO is a single neural network that detects objects in real time by framing detection as a regression problem."
+      }
+    ],
+    "question": "How fast is the smaller variant?",
+    "expected_answer": "Fast YOLO processes 155 frames per second.",
+    "source_files": [
+      "YOLO.pdf"
+    ]
+  },
+  {
+    "id": 77,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What is Deep Residual Learning for Image Recognition about?"
+      },
+      {
+        "role": "assistant",
+        "content": "It introduces residual learning to train substantially deeper networks for image recognition."
+      }
+    ],
+    "question": "How deep were the largest networks it evaluated?",
+    "expected_answer": "The largest residual networks evaluated have a depth of up to 152 layers.",
+    "source_files": [
+      "ResNet.pdf"
+    ]
+  },
+  {
+    "id": 78,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What is DistilBERT?"
+      },
+      {
+        "role": "assistant",
+        "content": "DistilBERT is a smaller version of BERT trained with knowledge distillation."
+      }
+    ],
+    "question": "How much faster is it than the model it was distilled from?",
+    "expected_answer": "DistilBERT is 60% faster than BERT.",
+    "source_files": [
+      "DistilBERT.pdf"
+    ]
+  },
+  {
+    "id": 79,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What is QLoRA?"
+      },
+      {
+        "role": "assistant",
+        "content": "QLoRA is a method for efficiently finetuning quantized language models using low rank adapters."
+      }
+    ],
+    "question": "How much GPU memory does it need to finetune a 65B parameter model?",
+    "expected_answer": "It can finetune a 65B parameter model on a single 48GB GPU.",
+    "source_files": [
+      "QLoRA.pdf"
+    ]
+  },
+  {
+    "id": 80,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "Which model does Training Compute-Optimal Large Language Models introduce?"
+      },
+      {
+        "role": "assistant",
+        "content": "It introduces Chinchilla, a 70B parameter model."
+      }
+    ],
+    "question": "How many times more training data did it use than Gopher?",
+    "expected_answer": "Chinchilla was trained on 4 times more data than Gopher, using the same compute budget.",
+    "source_files": [
+      "Chinchilla.pdf"
+    ]
+  },
+  {
+    "id": 81,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "Which two models does Generative Adversarial Nets train?"
+      },
+      {
+        "role": "assistant",
+        "content": "A generative model G and a discriminative model D."
+      }
+    ],
+    "question": "What does the discriminator estimate?",
+    "expected_answer": "The discriminator estimates the probability that a sample came from the training data rather than from the generator G.",
+    "source_files": [
+      "Generative_ai.pdf"
+    ]
+  },
+  {
+    "id": 82,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What are the two formulations in the RAG paper?"
+      },
+      {
+        "role": "assistant",
+        "content": "RAG-Sequence and RAG-Token."
+      }
+    ],
+    "question": "Which of them can use a different passage for each token?",
+    "expected_answer": "RAG-Token can use a different retrieved passage for each generated token.",
+    "source_files": [
+      "RAG.pdf"
+    ]
+  },
+  {
+    "id": 83,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What is the pretraining objective of XLNet?"
+      },
+      {
+        "role": "assistant",
+        "content": "XLNet maximizes the expected likelihood over all permutations of the factorization order."
+      }
+    ],
+    "question": "On how many tasks does it outperform BERT?",
+    "expected_answer": "XLNet outperforms BERT on 20 tasks, often by a large margin.",
+    "source_files": [
+      "XLNet.pdf"
+    ]
+  },
+  {
+    "id": 84,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What is Llama 2-Chat?"
+      },
+      {
+        "role": "assistant",
+        "content": "Llama 2-Chat is the fine-tuned version of Llama 2 optimized for dialogue use cases."
+      }
+    ],
+    "question": "What model sizes does it come in?",
+    "expected_answer": "Llama 2-Chat comes in the same range as Llama 2, from 7 billion to 70 billion parameters.",
+    "source_files": [
+      "Llama2.pdf"
+    ]
+  },
+  {
+    "id": 85,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What does ELECTRA propose?"
+      },
+      {
+        "role": "assistant",
+        "content": "ELECTRA proposes replaced token detection, a pre-training task where a discriminator predicts which tokens were replaced."
+      }
+    ],
+    "question": "How little compute did it need to outperform GPT on GLUE?",
+    "expected_answer": "A model trained on one GPU for 4 days outperforms GPT, which was trained using 30x more compute, on the GLUE benchmark.",
+    "source_files": [
+      "ELECTRA.pdf"
+    ]
+  },
+  {
+    "id": 86,
+    "category": "not_found",
+    "question": "What is the architecture of the Vision Transformer (ViT) for image classification?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 87,
+    "category": "not_found",
+    "question": "How many parameters does GPT-4 have?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 88,
+    "category": "not_found",
+    "question": "What was the training cost in US dollars of the 175-billion-parameter model in Language Models are Few-Shot Learners?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 89,
+    "category": "not_found",
+    "question": "Under which software license is the pre-trained BERT model released?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 90,
+    "category": "not_found",
+    "question": "Which reinforcement learning method does DeepSeek-R1 use to improve reasoning?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 91,
+    "category": "not_found",
+    "question": "Who won the 2022 FIFA World Cup?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 92,
+    "category": "not_found",
+    "question": "How many parameters does the Mixtral 8x7B mixture-of-experts model have?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 93,
+    "category": "not_found",
+    "question": "Which dataset was used to train the Segment Anything Model?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 94,
+    "category": "not_found",
+    "question": "Which selective state space mechanism does the Mamba architecture use?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 95,
+    "category": "not_found",
+    "question": "How many transformer layers does the Gemini model have?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 96,
+    "category": "not_found",
+    "question": "What was the training cost of Llama 2 in US dollars?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 97,
+    "category": "not_found",
+    "question": "What top-1 accuracy does Denoising Diffusion Probabilistic Models reach on ImageNet classification?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 98,
+    "category": "not_found",
+    "question": "What BLEU score does ResNet achieve on the WMT 2014 English-to-German translation task?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 99,
+    "category": "not_found",
+    "question": "Under which license is the source code of YOLO released?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 100,
+    "category": "not_found",
+    "question": "What is the latest version of the Hugging Face Transformers library?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  }
+]
