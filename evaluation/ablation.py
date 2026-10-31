@@ -1,3 +1,11 @@
+"""
+Retrieval ablation (no LLM). Your original script, plus a row for the new
+paper-aware retriever.
+
+Run from the repo root:
+    python evaluation/ablation.py
+    python evaluation/ablation.py evaluation/evaluation_set_50_v5.json
+"""
 import json
 import os
 import sys
@@ -10,24 +18,21 @@ os.chdir(ROOT)  # the index path in vectorstore.py is relative to the repo root
 from app.rag.embeddings import get_embedding_model
 from app.rag.vectorstore import load_vector_store, get_vectorstore_statistics
 from app.rag.reranker import rerank_documents
+from app.rag.retriever import PaperAwareRetriever
 
 vs = load_vector_store(get_embedding_model())
 print("Knowledge base:", get_vectorstore_statistics(vs))
 
-data = json.loads((ROOT / "evaluation" / "evaluation_set.json").read_text(encoding="utf-8"))
+data_path = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "evaluation" / "evaluation_set.json"
+data = json.loads(data_path.read_text(encoding="utf-8"))
 data = list({x["question"]: x for x in data}.values())  # drop verbatim duplicates
-if any(not x.get("source_files") for x in data):
-    sys.exit("Some questions have no source_files. Run evaluation/label_sources.py first.")
 
-K, FETCH_K, TOP = 10, 35, 5  # same values as app/rag/query.py
+total = len(data)
+data = [x for x in data if x.get("source_files") and "history" not in x]
+print(f"Evaluating {len(data)} of {total} questions "
+      f"(skipped {total - len(data)} not_found / follow-up items)")
 
-# Files that count as valid evidence for the same gold label.
-# EDIT: the key must match the GPT string in your evaluation_set.json exactly.
-FAMILY = {"GPT-1.pdf": {"GPT-1.pdf", "Language_model.pdf", "Few_Shot.pdf"}}
-
-
-def acceptable(gold_file):
-    return FAMILY.get(gold_file, {gold_file})
+K, FETCH_K, TOP = 10, 35, 5
 
 
 def cap_per_source(docs, max_per, top):
@@ -61,24 +66,36 @@ CONFIGS = {
     "dense top-5":           (False, False, None),
     "MMR top-5":             (True,  False, None),
     "dense + rerank":        (False, True,  None),
-    "MMR + rerank (app)":    (True,  True,   None),
+    "MMR + rerank (old app)": (True, True,  None),
     "MMR + rerank + cap2":   (True,  True,   2),
 }
 
+# name -> function(question) -> top-5 documents
+RETRIEVERS = {
+    name: (lambda q, m=mmr, r=rerank, c=cap: retrieve(q, m, r, c))
+    for name, (mmr, rerank, cap) in CONFIGS.items()
+}
+RETRIEVERS["paper-aware (new app)"] = PaperAwareRetriever(vectorstore=vs).retrieve
+
 n = len(data)
 n_multi = sum(len(x["source_files"]) > 1 for x in data)
-print(f"\n{'config':24s}{'Hit@5':>8s}{'Coverage@5':>12s}{'MRR':>8s}{'Multi-paper Cov':>17s}")
-for name, (mmr, rerank, cap) in CONFIGS.items():
-    hit = cov = mrr = cov_multi = 0.0
+n_single = n - n_multi
+print(f"\n{'config':26s}{'Hit@5':>8s}{'Coverage@5':>12s}{'MRR':>8s}{'Multi-paper Cov':>17s}{'Gold chunks/5 (single)':>24s}")
+for name, fn in RETRIEVERS.items():
+    hit = cov = mrr = cov_multi = gold_chunks = 0.0
     for item in data:
-        gold = item["source_files"]
-        files = [d.metadata["source_file"] for d in retrieve(item["question"], mmr, rerank, cap)]
-        first = next((i for i, f in enumerate(files) if any(f in acceptable(g) for g in gold)), None)
+        gold = set(item["source_files"])
+        files = [d.metadata["source_file"] for d in fn(item["question"])]
+        first = next((i for i, f in enumerate(files) if f in gold), None)
         if first is not None:
             hit += 1
             mrr += 1 / (first + 1)
-        c = sum(bool(acceptable(g) & set(files)) for g in gold) / len(gold)
+        c = len(gold & set(files)) / len(gold)
         cov += c
         if len(gold) > 1:
             cov_multi += c
-    print(f"{name:24s}{hit/n:8.1%}{cov/n:12.1%}{mrr/n:8.3f}{cov_multi/n_multi:17.1%}")
+        else:
+            gold_chunks += sum(f in gold for f in files)
+    multi_str = f"{cov_multi / n_multi:.1%}" if n_multi else "n/a"
+    single_str = f"{gold_chunks / n_single:.2f}" if n_single else "n/a"
+    print(f"{name:26s}{hit/n:8.1%}{cov/n:12.1%}{mrr/n:8.3f}{multi_str:>17s}{single_str:>24s}")
