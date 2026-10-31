@@ -1,206 +1,479 @@
 [
-    {
-        "question": "What is the key idea behind the Transformer model in 'Attention Is All You Need'?",
-        "expected_answer": "The Transformer replaces recurrent networks with a self-attention mechanism that allows each token to attend to all other tokens in a sequence."
-    },
-    {
-        "question": "What improvement does RoBERTa introduce over BERT?",
-        "expected_answer": "RoBERTa improves BERT by training longer, using larger datasets and batches, and removing the next sentence prediction objective."
-    },
-    {
-        "question": "What does XLNet combine from different modeling approaches?",
-        "expected_answer": "XLNet combines the strengths of autoregressive and autoencoding language models through permutation-based training."
-    },
-    {
-        "question": "What is the main idea of T5 model?",
-        "expected_answer": "T5 converts all natural language processing tasks into a unified text-to-text framework."
-    },
-    {
-        "question": "What is RAG used for in NLP tasks?",
-        "expected_answer": "RAG combines document retrieval with text generation to improve knowledge-intensive NLP tasks."
-    },
-    {
-        "question": "What is the purpose of LLaMA models?",
-        "expected_answer": "LLaMA aims to provide efficient and high-performing large language models using fewer computational resources."
-    },
-    {
-        "question": "What is LoRA mainly used for?",
-        "expected_answer": "LoRA enables parameter-efficient fine-tuning by updating a small number of low-rank matrices instead of all model parameters."
-    },
-    {
-        "question": "What mechanism replaced recurrence in the Transformer model?",
-        "expected_answer": "The Transformer replaces recurrent layers with self-attention mechanisms for sequence modeling."
-    },
-    {
-        "question": "What is the key innovation of BERT pretraining?",
-        "expected_answer": "BERT introduces masked language modeling, allowing the model to learn bidirectional contextual representations."
-    },
-    {
-        "question": "What is the main benefit of T5 framework?",
-        "expected_answer": "The T5 framework provides a unified approach where diverse NLP tasks are solved using the same text-to-text format."
-    },
-    {
-        "question": "What is the core idea of RAG systems?",
-        "expected_answer": "RAG systems retrieve relevant external documents and use them to generate more accurate and grounded responses."
-    },
-    {
-        "question": "Summarize the main contribution of the Transformer model introduced in Attention Is All You Need.",
-        "expected_answer": "The Transformer introduced a novel architecture based entirely on self-attention mechanisms, eliminating recurrent and convolutional layers while achieving superior performance in sequence modeling tasks."
-    },
-    {
-        "question": "Summarize the key idea behind BERT.",
-        "expected_answer": "BERT introduced bidirectional pretraining using masked language modeling, enabling the model to learn deep contextual representations from both directions of a text sequence."
-    },
-    {
-        "question": "Summarize the improvements introduced by RoBERTa.",
-        "expected_answer": "RoBERTa improved BERT by optimizing the training process through larger datasets, bigger batch sizes, longer training, and removal of the next sentence prediction objective."
-    },
-    {
-        "question": "Summarize the T5 framework.",
-        "expected_answer": "T5 unified a wide range of NLP tasks under a text-to-text paradigm, enabling the same model architecture to perform translation, classification, question answering, and other tasks."
-    },
-    {
-        "question": "Summarize Retrieval-Augmented Generation (RAG).",
-        "expected_answer": "RAG combines neural retrieval and sequence generation, allowing language models to access external knowledge sources during response generation."
-    },
-    {
-        "question": "Summarize the purpose of LLaMA.",
-        "expected_answer": "LLaMA focused on building efficient large language models that achieve strong performance while requiring significantly fewer computational resources."
-    },
-    {
-        "question": "Summarize the main idea of LoRA.",
-        "expected_answer": "LoRA introduced a parameter-efficient fine-tuning method that adapts large language models by training low-rank matrices instead of updating all parameters."
-    },
-    {
-        "question": "Compare BERT and GPT in terms of pretraining objectives.",
-        "expected_answer": "BERT uses masked language modeling to learn bidirectional representations, while GPT uses autoregressive next-token prediction for unidirectional language modeling."
-    },
-    {
-        "question": "Compare RoBERTa and BERT.",
-        "expected_answer": "RoBERTa retains the BERT architecture but improves training through larger datasets, dynamic masking, longer training, and removal of next sentence prediction."
-    },
-    {
-        "question": "Compare XLNet and BERT.",
-        "expected_answer": "XLNet addresses limitations of BERT's masked language modeling by introducing permutation-based autoregressive training while preserving bidirectional context."
-    },
-    {
-        "question": "Compare GPT and T5.",
-        "expected_answer": "GPT focuses on autoregressive text generation, whereas T5 converts all NLP tasks into a unified text-to-text framework."
-    },
-    {
-        "question": "Compare Transformer and recurrent neural networks.",
-        "expected_answer": "Transformers rely on self-attention for parallel processing and long-range dependency modeling, whereas recurrent neural networks process sequences sequentially."
-    },
-    {
-        "question": "Compare RAG and standard language models.",
-        "expected_answer": "RAG augments generation with retrieved external knowledge, while standard language models rely solely on information stored in model parameters."
-    },
-    {
-        "question": "Compare LLaMA and GPT-style models.",
-        "expected_answer": "LLaMA emphasizes computational efficiency and smaller model sizes while maintaining competitive performance compared to larger GPT-style models."
-    },
-    {
-        "question": "Compare LoRA and full fine-tuning.",
-        "expected_answer": "LoRA updates only a small set of trainable low-rank parameters, whereas full fine-tuning modifies all model parameters."
-    },
-    {
-        "question": "How did the Transformer architecture influence the development of BERT and GPT?",
-        "expected_answer": "Both BERT and GPT are built upon the Transformer architecture, leveraging self-attention mechanisms to learn powerful contextual language representations."
-    },
-    {
-        "question": "What problem was the Transformer architecture designed to address compared to recurrent networks?",
-        "expected_answer": "The Transformer was designed to eliminate recurrence and enable more efficient parallel processing of sequences using self-attention mechanisms."
-    },
-    {
-        "question": "What are the two main pretraining tasks used in BERT?",
-        "expected_answer": "BERT is pretrained using Masked Language Modeling and Next Sentence Prediction."
-    },
-    {
-        "question": "What is the purpose of Masked Language Modeling in BERT?",
-        "expected_answer": "Masked Language Modeling trains the model to predict masked tokens using both left and right context."
-    },
-    {
-        "question": "Why was RoBERTa able to outperform the original BERT model?",
-        "expected_answer": "RoBERTa improved performance through longer training, larger batches, more training data, dynamic masking, and removal of the next sentence prediction objective."
-    },
-    {
-        "question": "What language modeling objective is introduced in XLNet?",
-        "expected_answer": "XLNet introduces a permutation-based autoregressive language modeling objective."
-    },
-    {
-        "question": "What is the primary goal of the T5 framework?",
-        "expected_answer": "T5 aims to unify all NLP tasks into a text-to-text framework using a single model architecture."
-    },
-    {
-        "question": "How does RAG incorporate external knowledge into generation?",
-        "expected_answer": "RAG retrieves relevant documents from an external knowledge source and conditions generation on the retrieved information."
-    },
-    {
-        "question": "What type of memory does RAG introduce in addition to parametric memory?",
-        "expected_answer": "RAG introduces non-parametric memory through an external document retrieval system."
-    },
-    {
-        "question": "What is one of the main contributions of the LLaMA paper?",
-        "expected_answer": "LLaMA demonstrates that smaller language models trained on large amounts of data can achieve strong performance efficiently."
-    },
-    {
-        "question": "What does LoRA freeze during fine-tuning?",
-        "expected_answer": "LoRA freezes the original pretrained model weights and trains only low-rank adaptation matrices."
-    },
-    {
-        "question": "How does LoRA reduce computational costs during adaptation?",
-        "expected_answer": "LoRA reduces computational costs by updating only a small number of trainable parameters instead of the entire model."
-    },
-    {
-        "question": "What mechanism allows the Transformer to model relationships between distant tokens?",
-        "expected_answer": "Self-attention allows the Transformer to model long-range dependencies between tokens."
-    },
-    {
-        "question": "What type of architecture is used by BERT?",
-        "expected_answer": "BERT uses a multi-layer bidirectional Transformer encoder architecture."
-    },
-    {
-        "question": "What major component of BERT training was removed in RoBERTa?",
-        "expected_answer": "RoBERTa removes the Next Sentence Prediction objective used in BERT."
-    },
-    {
-        "question": "What advantage does permutation language modeling provide in XLNet?",
-        "expected_answer": "Permutation language modeling enables XLNet to capture bidirectional context while maintaining an autoregressive training objective."
-    },
-    {
-        "question": "What limitation of full fine-tuning does LoRA address?",
-        "expected_answer": "LoRA addresses the high memory and computational requirements associated with full model fine-tuning."
-    },
-    {
-        "question": "Summarize the main contribution of the Attention Is All You Need paper.",
-        "expected_answer": "The paper introduces the Transformer architecture, which relies entirely on self-attention mechanisms instead of recurrence and achieves strong performance on sequence modeling tasks."
-    },
-    {
-        "question": "Summarize the BERT paper.",
-        "expected_answer": "The BERT paper introduces bidirectional Transformer pretraining using Masked Language Modeling and Next Sentence Prediction, achieving state-of-the-art results on multiple NLP benchmarks."
-    },
-    {
-        "question": "Summarize the GPT paper on generative pretraining.",
-        "expected_answer": "The GPT paper demonstrates that language models pretrained on large unlabeled corpora can be effectively adapted to downstream NLP tasks through fine-tuning."
-    },
-    {
-        "question": "Summarize the key findings of the RoBERTa paper.",
-        "expected_answer": "RoBERTa shows that BERT's performance can be significantly improved through optimized training procedures, larger datasets, and removal of the Next Sentence Prediction objective."
-    },
-    {
-        "question": "Summarize the XLNet paper.",
-        "expected_answer": "XLNet introduces permutation-based autoregressive pretraining, combining the strengths of autoregressive and autoencoding approaches while outperforming BERT on several benchmarks."
-    },
-    {
-        "question": "Summarize the T5 framework.",
-        "expected_answer": "T5 unifies diverse NLP tasks into a text-to-text format and demonstrates that scaling both models and datasets leads to strong transfer learning performance."
-    },
-    {
-        "question": "Summarize the Retrieval-Augmented Generation paper.",
-        "expected_answer": "The RAG paper combines neural retrieval with sequence generation, allowing language models to access external knowledge and improve performance on knowledge-intensive tasks."
-    },
-    {
-        "question": "Provide a summary of the evolution from Transformer-based models to Retrieval-Augmented Generation systems.",
-        "expected_answer": "The evolution progressed from self-attention-based Transformer architectures to pretrained language models and eventually to retrieval-augmented systems that combine generation with external knowledge sources."
-    }
+  {
+    "id": 1,
+    "category": "direct",
+    "question": "In Attention Is All You Need, why are the dot products in scaled dot-product attention divided by the square root of d_k?",
+    "expected_answer": "For large values of d_k the dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients; scaling counteracts this.",
+    "source_files": [
+      "Attention_is_all_you_need.pdf"
+    ]
+  },
+  {
+    "id": 2,
+    "category": "direct",
+    "question": "What BLEU score does the Transformer achieve on the WMT 2014 English-to-German translation task?",
+    "expected_answer": "The Transformer achieves 28.4 BLEU on the WMT 2014 English-to-German translation task.",
+    "source_files": [
+      "Attention_is_all_you_need.pdf"
+    ]
+  },
+  {
+    "id": 3,
+    "category": "direct",
+    "question": "Which functions does the Transformer in Attention Is All You Need use for positional encodings?",
+    "expected_answer": "It uses sine and cosine functions of different frequencies.",
+    "source_files": [
+      "Attention_is_all_you_need.pdf"
+    ]
+  },
+  {
+    "id": 4,
+    "category": "direct",
+    "question": "How many parameters do BERT-BASE and BERT-LARGE have?",
+    "expected_answer": "BERT-BASE has 110M parameters and BERT-LARGE has 340M parameters.",
+    "source_files": [
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 5,
+    "category": "direct",
+    "question": "In BERT's masked language model (MLM) pre-training, what percentage of WordPiece tokens is masked at random?",
+    "expected_answer": "BERT masks 15% of all WordPiece tokens in each sequence at random.",
+    "source_files": [
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 6,
+    "category": "direct",
+    "question": "Which two corpora is BERT pre-trained on, and how many words does each contain?",
+    "expected_answer": "BERT is pre-trained on BooksCorpus (800M words) and English Wikipedia (2,500M words).",
+    "source_files": [
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 7,
+    "category": "direct",
+    "question": "What semi-supervised approach does Improving Language Understanding by Generative Pre-Training propose for language understanding tasks?",
+    "expected_answer": "The paper proposes a semi-supervised approach that combines unsupervised pre-training and supervised fine-tuning: generative pre-training of a language model on a diverse corpus of unlabeled text, followed by discriminative fine-tuning on each specific task.",
+    "source_files": [
+      "GPT-1.pdf"
+    ]
+  },
+  {
+    "id": 8,
+    "category": "direct",
+    "question": "How does Improving Language Understanding by Generative Pre-Training use task-aware input transformations to adapt the pre-trained model to different downstream tasks?",
+    "expected_answer": "They are traversal-style input transformations that convert structured inputs into an ordered sequence of tokens the pre-trained model can process, so only minimal changes to the model architecture are needed.",
+    "source_files": [
+      "GPT-1.pdf"
+    ]
+  },
+  {
+    "id": 9,
+    "category": "direct",
+    "question": "On how many of the 8 language modeling datasets does the largest model in Language Models are Unsupervised Multitask Learners achieve state of the art results in a zero-shot setting?",
+    "expected_answer": "GPT-2 achieves state of the art results on 7 out of 8 tested language modeling datasets in a zero-shot setting.",
+    "source_files": [
+      "Language_model.pdf"
+    ]
+  },
+  {
+    "id": 10,
+    "category": "direct",
+    "question": "How many parameters does the largest model in Language Models are Unsupervised Multitask Learners, trained on WebText, have?",
+    "expected_answer": "GPT-2 is a 1.5B parameter Transformer.",
+    "source_files": [
+      "Language_model.pdf"
+    ]
+  },
+  {
+    "id": 11,
+    "category": "direct",
+    "question": "What is WebText, the dataset used in Language Models are Unsupervised Multitask Learners, and how was it collected?",
+    "expected_answer": "WebText is a new dataset of millions of webpages on which GPT-2 is trained, built by scraping outbound links from Reddit that received at least 3 karma.",
+    "source_files": [
+      "Language_model.pdf"
+    ]
+  },
+  {
+    "id": 12,
+    "category": "direct",
+    "question": "How many parameters does the model trained in Language Models are Few-Shot Learners have, compared with previous non-sparse language models?",
+    "expected_answer": "GPT-3 has 175 billion parameters, 10x more than any previous non-sparse language model.",
+    "source_files": [
+      "Few_Shot.pdf"
+    ]
+  },
+  {
+    "id": 13,
+    "category": "direct",
+    "question": "How is the model in Language Models are Few-Shot Learners applied to tasks in the few-shot setting, and are any gradient updates or fine-tuning used?",
+    "expected_answer": "Tasks and few-shot demonstrations are specified purely via text interaction with the model, without any gradient updates or fine-tuning.",
+    "source_files": [
+      "Few_Shot.pdf"
+    ]
+  },
+  {
+    "id": 14,
+    "category": "direct",
+    "question": "What range of parameter sizes do the LLaMA foundation language models cover?",
+    "expected_answer": "LLaMA is a collection of foundation language models ranging from 7B to 65B parameters.",
+    "source_files": [
+      "LLama.pdf"
+    ]
+  },
+  {
+    "id": 15,
+    "category": "direct",
+    "question": "What kind of datasets are the LLaMA models trained on?",
+    "expected_answer": "LLaMA models are trained on trillions of tokens using exclusively publicly available datasets.",
+    "source_files": [
+      "LLama.pdf"
+    ]
+  },
+  {
+    "id": 16,
+    "category": "direct",
+    "question": "How does LLaMA-13B compare on benchmarks with the 175B-parameter model from Language Models are Few-Shot Learners?",
+    "expected_answer": "LLaMA-13B outperforms GPT-3 (175B) on most benchmarks.",
+    "source_files": [
+      "LLama.pdf"
+    ]
+  },
+  {
+    "id": 17,
+    "category": "direct",
+    "question": "In LoRA (Low-Rank Adaptation), what is frozen and what is injected into each layer of the Transformer architecture?",
+    "expected_answer": "LoRA freezes the pre-trained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture.",
+    "source_files": [
+      "LoRA.pdf"
+    ]
+  },
+  {
+    "id": 18,
+    "category": "direct",
+    "question": "By how much can LoRA reduce trainable parameters and GPU memory compared with fine-tuning the 175B-parameter model from Language Models are Few-Shot Learners with Adam?",
+    "expected_answer": "LoRA can reduce the number of trainable parameters by 10,000 times and the GPU memory requirement by 3 times.",
+    "source_files": [
+      "LoRA.pdf"
+    ]
+  },
+  {
+    "id": 19,
+    "category": "direct",
+    "question": "What are the parametric and non-parametric memory in retrieval-augmented generation (RAG)?",
+    "expected_answer": "The parametric memory is a pre-trained seq2seq model; the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever.",
+    "source_files": [
+      "RAG.pdf"
+    ]
+  },
+  {
+    "id": 20,
+    "category": "direct",
+    "question": "What is the difference between RAG-Sequence and RAG-Token?",
+    "expected_answer": "RAG-Sequence conditions on the same retrieved passage across the whole generated sequence, while RAG-Token can use a different passage per token.",
+    "source_files": [
+      "RAG.pdf"
+    ]
+  },
+  {
+    "id": 21,
+    "category": "direct",
+    "question": "Which pre-training objective does RoBERTa remove from BERT?",
+    "expected_answer": "RoBERTa removes the next sentence prediction (NSP) objective.",
+    "source_files": [
+      "RoBERTa.pdf"
+    ]
+  },
+  {
+    "id": 22,
+    "category": "direct",
+    "question": "What is the Colossal Clean Crawled Corpus (C4) introduced in the T5 paper?",
+    "expected_answer": "C4 is a data set consisting of hundreds of gigabytes of clean English text scraped from the web (derived from Common Crawl), introduced in the T5 paper.",
+    "source_files": [
+      "Transfer_Learning.pdf"
+    ]
+  },
+  {
+    "id": 23,
+    "category": "direct",
+    "question": "Which two limitations of BERT does XLNet's generalized autoregressive pretraining overcome?",
+    "expected_answer": "BERT neglects dependency between the masked positions and suffers from a pretrain-finetune discrepancy.",
+    "source_files": [
+      "XLNet.pdf"
+    ]
+  },
+  {
+    "id": 24,
+    "category": "direct",
+    "question": "Which two models are trained simultaneously in Generative Adversarial Nets, and what does each one do?",
+    "expected_answer": "A generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G.",
+    "source_files": [
+      "Generative_ai.pdf"
+    ]
+  },
+  {
+    "id": 25,
+    "category": "direct",
+    "question": "How many convolutional and fully-connected layers does the ImageNet classification network have, and what is its final layer?",
+    "expected_answer": "It has five convolutional layers and three fully-connected layers, with a final 1000-way softmax.",
+    "source_files": [
+      "ImageNet.pdf"
+    ]
+  },
+  {
+    "id": 26,
+    "category": "direct",
+    "question": "What top-5 test error rate did the ImageNet network variant achieve in the ILSVRC-2012 competition, compared with the second-best entry?",
+    "expected_answer": "A variant achieved a top-5 test error rate of 15.3%, compared to 26.2% achieved by the second-best entry.",
+    "source_files": [
+      "ImageNet.pdf"
+    ]
+  },
+  {
+    "id": 27,
+    "category": "direct",
+    "question": "How does YOLO frame object detection, and what does its single neural network predict?",
+    "expected_answer": "YOLO frames object detection as a regression problem to spatially separated bounding boxes and associated class probabilities; a single neural network predicts bounding boxes and class probabilities directly from full images in one evaluation.",
+    "source_files": [
+      "YOLO.pdf"
+    ]
+  },
+  {
+    "id": 28,
+    "category": "direct",
+    "question": "At how many frames per second do YOLO and Fast YOLO process images?",
+    "expected_answer": "The base YOLO model processes images in real-time at 45 frames per second, and Fast YOLO processes 155 frames per second.",
+    "source_files": [
+      "YOLO.pdf"
+    ]
+  },
+  {
+    "id": 29,
+    "category": "summary",
+    "question": "Summarize Attention Is All You Need, the paper that proposes the Transformer.",
+    "expected_answer": "The paper proposes the Transformer, a network architecture based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. It is more parallelizable, requires less time to train, and achieves 28.4 BLEU on WMT 2014 English-to-German.",
+    "source_files": [
+      "Attention_is_all_you_need.pdf"
+    ]
+  },
+  {
+    "id": 30,
+    "category": "summary",
+    "question": "Summarize Improving Language Understanding by Generative Pre-Training.",
+    "expected_answer": "The paper shows that generative pre-training of a language model on diverse unlabeled text, followed by discriminative fine-tuning on each task, yields large gains, improving the state of the art in 9 of 12 tasks.",
+    "source_files": [
+      "GPT-1.pdf"
+    ]
+  },
+  {
+    "id": 31,
+    "category": "summary",
+    "question": "Summarize Language Models are Unsupervised Multitask Learners and its zero-shot results.",
+    "expected_answer": "The paper shows that language models begin to learn tasks such as question answering, machine translation, reading comprehension, and summarization without explicit supervision when trained on WebText, a dataset of millions of webpages; GPT-2 has 1.5B parameters.",
+    "source_files": [
+      "Language_model.pdf"
+    ]
+  },
+  {
+    "id": 32,
+    "category": "summary",
+    "question": "Summarize Language Models are Few-Shot Learners, the paper that trains a 175-billion-parameter autoregressive language model.",
+    "expected_answer": "The paper trains GPT-3, an autoregressive language model with 175 billion parameters, and tests it in the few-shot setting without any gradient updates or fine-tuning, achieving strong performance on many NLP datasets.",
+    "source_files": [
+      "Few_Shot.pdf"
+    ]
+  },
+  {
+    "id": 33,
+    "category": "summary",
+    "question": "Summarize LLaMA: Open and Efficient Foundation Language Models.",
+    "expected_answer": "LLaMA is a collection of foundation language models ranging from 7B to 65B parameters, trained on trillions of tokens using exclusively publicly available datasets; LLaMA-13B outperforms GPT-3 (175B) on most benchmarks.",
+    "source_files": [
+      "LLama.pdf"
+    ]
+  },
+  {
+    "id": 34,
+    "category": "summary",
+    "question": "Summarize You Only Look Once: Unified, Real-Time Object Detection (YOLO).",
+    "expected_answer": "YOLO frames object detection as a regression problem: a single neural network predicts bounding boxes and class probabilities directly from full images in one evaluation, processing 45 frames per second in real time.",
+    "source_files": [
+      "YOLO.pdf"
+    ]
+  },
+  {
+    "id": 35,
+    "category": "summary",
+    "question": "Summarize XLNet: Generalized Autoregressive Pretraining for Language Understanding.",
+    "expected_answer": "XLNet is a generalized autoregressive pretraining method that learns bidirectional contexts by maximizing the expected likelihood over all permutations of the factorization order, overcomes limitations of BERT, and outperforms BERT on 20 tasks.",
+    "source_files": [
+      "XLNet.pdf"
+    ]
+  },
+  {
+    "id": 36,
+    "category": "summary",
+    "question": "Summarize Generative Adversarial Nets.",
+    "expected_answer": "The paper proposes an adversarial process that simultaneously trains a generative model G, which captures the data distribution, and a discriminative model D, which estimates whether a sample came from the training data rather than G.",
+    "source_files": [
+      "Generative_ai.pdf"
+    ]
+  },
+  {
+    "id": 37,
+    "category": "comparison",
+    "question": "Compare BERT's masked language model (MLM) pre-training objective with the standard language modeling objective used in Improving Language Understanding by Generative Pre-Training.",
+    "expected_answer": "BERT's MLM randomly masks tokens and predicts them from both left and right context, enabling deep bidirectional pre-training, while GPT-1 uses a standard language modeling objective that predicts each token from the preceding context.",
+    "source_files": [
+      "BERT.pdf",
+      "GPT-1.pdf"
+    ]
+  },
+  {
+    "id": 38,
+    "category": "comparison",
+    "question": "Compare how Language Models are Unsupervised Multitask Learners and Language Models are Few-Shot Learners evaluate their models on downstream tasks: zero-shot versus few-shot settings, and model size.",
+    "expected_answer": "GPT-2 (1.5B parameters) is evaluated in a zero-shot setting without any parameter or architecture modification, while GPT-3 (175 billion parameters) is evaluated in zero-shot, one-shot, and few-shot settings without gradient updates or fine-tuning.",
+    "source_files": [
+      "Language_model.pdf",
+      "Few_Shot.pdf"
+    ]
+  },
+  {
+    "id": 39,
+    "category": "comparison",
+    "question": "Compare how Improving Language Understanding by Generative Pre-Training and Language Models are Unsupervised Multitask Learners adapt to downstream tasks: supervised fine-tuning versus the zero-shot setting.",
+    "expected_answer": "GPT-1 uses unsupervised generative pre-training followed by supervised, discriminative fine-tuning on each specific task with task-aware input transformations, while GPT-2 is trained on WebText and performs tasks in a zero-shot setting without any parameter or architecture modification.",
+    "source_files": [
+      "GPT-1.pdf",
+      "Language_model.pdf"
+    ]
+  },
+  {
+    "id": 40,
+    "category": "comparison",
+    "question": "Compare retrieval-augmented generation (RAG) with a seq2seq model that has only parametric memory.",
+    "expected_answer": "A pre-trained seq2seq model stores knowledge only in its parameters (parametric memory), while RAG adds non-parametric memory, a dense vector index of Wikipedia accessed with a pre-trained neural retriever.",
+    "source_files": [
+      "RAG.pdf"
+    ]
+  },
+  {
+    "id": 41,
+    "category": "comparison",
+    "question": "Compare how RoBERTa and XLNet each improve on BERT's pretraining.",
+    "expected_answer": "RoBERTa keeps BERT's architecture but trains longer with bigger batches over more data, removes next sentence prediction, trains on longer sequences, and dynamically changes the masking pattern. XLNet instead maximizes the expected likelihood over all permutations of the factorization order.",
+    "source_files": [
+      "RoBERTa.pdf",
+      "XLNet.pdf",
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 42,
+    "category": "comparison",
+    "question": "Compare the text-to-text format of T5 with fine-tuning BERT for different language tasks.",
+    "expected_answer": "T5 converts every language problem into a text-to-text format, using the same model, loss function, and hyperparameters across tasks, whereas BERT is fine-tuned with just one additional output layer for each task.",
+    "source_files": [
+      "Transfer_Learning.pdf",
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 43,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "In the paper LoRA: Low-Rank Adaptation of Large Language Models, what does Low-Rank Adaptation (LoRA) freeze?"
+      },
+      {
+        "role": "assistant",
+        "content": "LoRA freezes the pre-trained model weights."
+      }
+    ],
+    "question": "What does it inject into each layer of the Transformer architecture instead?",
+    "expected_answer": "It injects trainable rank decomposition matrices into each layer of the Transformer architecture.",
+    "source_files": [
+      "LoRA.pdf"
+    ]
+  },
+  {
+    "id": 44,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What is the Colossal Clean Crawled Corpus (C4) introduced in the T5 paper?"
+      },
+      {
+        "role": "assistant",
+        "content": "C4 is a data set of hundreds of gigabytes of clean English text scraped from the web, used to pre-train T5."
+      }
+    ],
+    "question": "How many parameters does the largest model trained on it have?",
+    "expected_answer": "The largest T5 model has 11 billion parameters.",
+    "source_files": [
+      "Transfer_Learning.pdf"
+    ]
+  },
+  {
+    "id": 45,
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What is the masked language model (MLM) pre-training task in BERT?"
+      },
+      {
+        "role": "assistant",
+        "content": "BERT masks 15% of all WordPiece tokens at random and predicts the masked tokens."
+      }
+    ],
+    "question": "How does RoBERTa change the masking pattern applied to the training data?",
+    "expected_answer": "RoBERTa uses dynamic masking: it generates the masking pattern every time a sequence is fed to the model instead of masking once during preprocessing.",
+    "source_files": [
+      "RoBERTa.pdf",
+      "BERT.pdf"
+    ]
+  },
+  {
+    "id": 46,
+    "category": "not_found",
+    "question": "What is the architecture of the Vision Transformer (ViT) for image classification?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 47,
+    "category": "not_found",
+    "question": "How many parameters does GPT-4 have?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 48,
+    "category": "not_found",
+    "question": "What was the training cost in US dollars of the 175-billion-parameter model in Language Models are Few-Shot Learners?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 49,
+    "category": "not_found",
+    "question": "What BLEU score does the Transformer from Attention Is All You Need achieve on WMT 2016 English-to-Romanian?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  },
+  {
+    "id": 50,
+    "category": "not_found",
+    "question": "Under which software license is BERT released?",
+    "expected_answer": "I could not find the answer in the provided papers.",
+    "source_files": []
+  }
 ]
