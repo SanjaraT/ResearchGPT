@@ -26,17 +26,9 @@ def load_folder(folder):
 
     return docs
 
+def load_all_pdfs(folders=("data/pdfs", "data/uploads")):
+    docs = []
+    for f in folders:
+        docs.extend(load_folder(f))
+    return docs
 
-def load_all_pdfs():
-
-    all_docs = []
-
-    all_docs.extend(
-        load_folder("data/pdfs")
-    )
-
-    all_docs.extend(
-        load_folder("data/uploads")
-    )
-
-    return all_docs
