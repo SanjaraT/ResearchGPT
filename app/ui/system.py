@@ -29,23 +29,24 @@ def initialize_system():
 
     if "vectorstore" in st.session_state:
         return
+    
+    # if not (INDEX_PATH / "index.faiss").exists():
+    #     st.error(
+    #         "No knowledge base found. Put PDFs in data/pdfs, "
+    #         "run `python create_index.py`, then restart the app."
+    #     )
+    # st.stop()
+    with st.spinner("Loading models and index (first start takes about a minute)..."):
 
-    if not (INDEX_PATH / "index.faiss").exists():
-        st.error(
-            "No knowledge base found. Put PDFs in data/pdfs, "
-            "run `python create_index.py`, then restart the app."
+        embeddings = load_embedding_model()
+
+        vectorstore = load_vector_store(
+            embeddings
         )
-    st.stop()
 
-    embeddings = load_embedding_model()
-
-    vectorstore = load_vector_store(
-        embeddings
-    )
-
-    qa_chain, retriever = build_qa_chain(
-        vectorstore
-    )
+        qa_chain, retriever = build_qa_chain(
+            vectorstore
+        )
 
     st.session_state.embeddings = embeddings
 
