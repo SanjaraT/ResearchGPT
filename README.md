@@ -4,7 +4,31 @@ A production-style **Retrieval-Augmented Generation (RAG)** system that answers 
 
 ResearchGPT supports **dynamic PDF uploads**, allowing users to extend the knowledge base without rebuilding the entire project.
 
-Built with **LangChain, FAISS, HuggingFace Embeddings, Groq LLMs, Streamlit, and Docker.**
+Built with **LangChain, FAISS, HuggingFace Embeddings, Groq LLMs, Streamlit, and Docker**, and deployed on **Streamlit Community Cloud.**
+
+### 🔗 Live demo: **[ResearchGPT on Streamlit Cloud](https://researchgpt-djdapmwpzoj3wa9vvfrpql.streamlit.app/)**
+
+Ask questions over the 30 pre-loaded research papers, or upload your own PDFs and ask about those too, all in your browser with no installation. See [Live Demo](#live-demo) for details.
+
+---
+
+# Live Demo
+
+**Try it here:** https://researchgpt-djdapmwpzoj3wa9vvfrpql.streamlit.app/
+
+The demo starts with 30 papers indexed. Ask about a paper by name (for example "What is the training objective of BERT?"), compare two papers, or ask a follow-up question. You can also **upload your own PDFs** from the sidebar; they are added to the knowledge base without rebuilding it, and you can then ask questions about them. Every answer shows its sources with page numbers.
+
+How it is deployed:
+
+- The `main` branch holds the code only. The PDFs and the FAISS index are not committed there.
+- A separate **`demo` branch** adds `data/pdfs/` and the prebuilt `data/faiss_index/`, so the hosted app starts without rebuilding the index.
+- Streamlit Community Cloud runs `streamlit_app.py` from the `demo` branch. The Groq API key is not stored in the repository; it is supplied through the app's secrets settings.
+
+Notes about the public demo:
+
+- It runs on free tiers. After a period of inactivity the app goes to sleep, and the first load afterwards takes about a minute while the models and the index load.
+- Uploaded PDFs are stored on the app's server, which is not permanent: they disappear when the app restarts, and other visitors may see them in the knowledge base while it is running, so do not upload anything private.
+- All visitors share one Groq API key, so heavy use can hit rate limits; if an answer fails, wait a moment and ask again.
 
 ---
 
@@ -26,6 +50,7 @@ Built with **LangChain, FAISS, HuggingFace Embeddings, Groq LLMs, Streamlit, and
 - 📈 Evaluation Pipeline with LLM-Judge Grading and a Retrieval Ablation (semantic similarity kept as a legacy score)
 - 🌐 Streamlit Web Interface
 - 🐳 Dockerized Application
+- ☁️ Live Deployment on Streamlit Community Cloud
 - ⚙️ GitHub Actions CI/CD (syntax check, Docker build & push to Docker Hub)
 
 ---
@@ -44,6 +69,7 @@ Built with **LangChain, FAISS, HuggingFace Embeddings, Groq LLMs, Streamlit, and
 | Evaluation | LLM judge (openai/gpt-oss-120b via Groq), numeric check, Scikit-Learn similarity (legacy) |
 | Containerization | Docker |
 | CI/CD | GitHub Actions |
+| Deployment | Streamlit Community Cloud (`demo` branch with the PDFs and a prebuilt FAISS index) |
 
 ---
 
@@ -69,6 +95,7 @@ Built with **LangChain, FAISS, HuggingFace Embeddings, Groq LLMs, Streamlit, and
 | **ALL** | **100** | **75** | **16** | **9** | **75%** | **83%** |
 
 *strict = correct only; lenient = partial answers count half. "Wrong" counts everything that is neither correct nor partial, including 2 answers the judge marked correct that missed a number from the reference (the judge's own verdicts are 77 correct / 16 partial / 7 wrong). Summary answers are mostly incomplete (8 partial, 0 wrong) rather than incorrect.*
+
 
 The original similarity score (all-MiniLM-L6-v2 cosine similarity ≥ 0.70) is kept as a legacy column: 77/100 on this set, but it is threshold-sensitive (91% at ≥ 0.60 down to 53% at ≥ 0.80) and disagrees with the judge on 34 of the 100 questions, so it is not used as the headline metric.
 
@@ -261,9 +288,23 @@ http://localhost:8501
 
 ---
 
+# Deployment (Streamlit Community Cloud)
+
+To publish your own copy:
+
+1. Build the index locally with all PDFs in `data/pdfs/`: `python create_index.py`
+2. Create a branch for the demo: `git checkout -b demo`
+3. Commit `data/pdfs/` and `data/faiss_index/` on that branch (remove them from `.gitignore` there) and push it
+4. In Streamlit Community Cloud, create a new app from the repository, choose the **`demo`** branch and `streamlit_app.py` as the main file
+5. Under *Advanced settings → Secrets*, add `GROQ_API_KEY = "your-key"`
+
+The index must be built with the same embedding model the app uses, otherwise retrieval returns nothing useful. Rebuild and recommit it whenever you add or change PDFs.
+
+---
+
 # Running the Evaluation
 
-The evaluation sets assume the 30 papers listed below are in `data/pdfs/` (PDFs are not included in the repository) and that `GROQ_API_KEY` is set in `.env`. Run these from the repository root after `python create_index.py`.
+The evaluation sets assume the 30 papers listed below are in `data/pdfs/` (PDFs are not included in the `main` branch; the `demo` branch contains them) and that `GROQ_API_KEY` is set in `.env`. Run these from the repository root after `python create_index.py`.
 
 ```bash
 # LLM-judge evaluation (resumable; use --out so different runs do not overwrite each other)
@@ -329,6 +370,7 @@ Summarize the methodology of this paper.
 - Resolve follow-up questions from the chat history
 - Refuse questions the papers cannot answer
 - Evaluate answer quality with an LLM judge (semantic similarity kept as a legacy score)
+- Try it online without installing anything (Streamlit Community Cloud)
 - Run locally or inside Docker
 
 ---
@@ -336,7 +378,6 @@ Summarize the methodology of this paper.
 # Future Improvements
 
 - FastAPI Backend
-- Cloud Deployment (Render)
 - Hybrid Search (Dense + BM25)
 - Authentication & User Accounts
 - Persistent Chat History
